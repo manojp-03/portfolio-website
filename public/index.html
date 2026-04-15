@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Manoj Panduraj | DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth}
+:root{
+  --bg:#f8fafc;
+  --bg-soft:#eef4ff;
+  --surface:#ffffff;
+  --surface-2:#f1f5f9;
+  --text:#0f172a;
+  --muted:#475569;
+  --line:#dbeafe;
+  --primary:#2563eb;
+  --primary-2:#7c3aed;
+  --accent:#06b6d4;
+  --shadow:0 18px 45px rgba(37,99,235,.12);
+}
+body{
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.65;
+  background:
+    radial-gradient(circle at top left, rgba(96,165,250,.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(167,139,250,.18), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 45%, #f1f5f9 100%);
+}
+a{color:var(--primary);text-decoration:none}
+a:hover{color:var(--primary-2)}
+
+nav{
+  position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:16px 8%;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);z-index:1000;
+  border-bottom:1px solid rgba(148,163,184,.22)
+}
+.logo{font-size:20px;font-weight:700;color:var(--text)}
+.nav-links{display:flex;flex-wrap:wrap;gap:18px}
+.nav-links a{color:var(--muted);font-size:14px;font-weight:500}
+.nav-links a:hover{color:var(--primary)}
+
+section{padding:92px 8%}
+.hero{padding:160px 8% 95px;position:relative}
+.hero-wrap{display:grid;grid-template-columns:1.3fr .9fr;gap:28px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  background:#eff6ff;border:1px solid #bfdbfe;color:var(--primary);font-size:13px;font-weight:600;margin-bottom:18px
+}
+.hero h1{
+  font-size:60px;line-height:1.05;letter-spacing:-1.5px;
+  background:linear-gradient(90deg,var(--text),var(--primary),var(--primary-2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent
+}
+.subtitle{font-size:22px;font-weight:600;color:#1e293b;margin-top:12px}
+.skills-line,.contact-line{color:var(--muted);margin-top:10px}
+
+.hero-card,.card{
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(191,219,254,.85);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(8px)
+}
+.hero-card{padding:28px}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.stat{
+  padding:16px;border-radius:18px;background:linear-gradient(180deg,#fff,#f8fbff);border:1px solid #dbeafe
+}
+.stat h3{font-size:28px;color:var(--primary);margin-bottom:4px}
+
+/* Profile image */
+.profile-wrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom:18px;
+}
+.profile-image{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #ffffff;
+  box-shadow:0 12px 30px rgba(37,99,235,0.18);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.profile-image:hover{
+  transform:scale(1.04);
+  box-shadow:0 18px 38px rgba(37,99,235,0.26);
+}
+
+.btn-group{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:15px;
+  transition:.3s ease;
+  border:1px solid transparent
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+  box-shadow:0 14px 30px rgba(37,99,235,.22)
+}
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 38px rgba(37,99,235,.28);
+  color:#fff
+}
+.btn-secondary{
+  background:#fff;
+  color:var(--primary);
+  border-color:#bfdbfe
+}
+.btn-secondary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px rgba(37,99,235,.10)
+}
+
+h2{font-size:34px;margin-bottom:22px;color:var(--text)}
+.section-intro{color:var(--muted);max-width:760px;margin-bottom:24px}
+
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.kpi .card{text-align:center;padding:26px 20px}
+.kpi h3{font-size:34px;color:var(--primary);margin-bottom:4px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+
+.card{padding:24px;transition:.35s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(37,99,235,.16);border-color:#93c5fd}
+.card h3{margin-bottom:8px;color:#0f172a}
+.card h4{margin-bottom:8px;color:#334155;font-size:15px;font-weight:600}
+
+.meta{display:flex;flex-wrap:wrap;gap:14px;color:#64748b;font-size:14px;margin-bottom:12px}
+ul{padding-left:20px;margin-top:12px}
+li{margin-bottom:10px;color:#334155}
+
+.category-title{font-size:18px;font-weight:600;color:var(--primary);margin-bottom:12px}
+.tag{
+  display:inline-block;padding:8px 12px;border-radius:999px;margin:6px 6px 0 0;
+  font-size:13px;color:#1e3a8a;background:#eff6ff;border:1px solid #bfdbfe;transition:.25s
+}
+.tag:hover{background:linear-gradient(90deg,#dbeafe,#ede9fe);transform:translateY(-2px)}
+
+.project-card{position:relative;overflow:hidden}
+.project-card::before{
+  content:"";position:absolute;inset:0 auto auto 0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--primary),var(--accent),var(--primary-2))
+}
+.project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.mini-link{
+  display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;
+  background:#eff6ff;border:1px solid #bfdbfe;color:var(--primary);font-weight:600;font-size:14px
+}
+
+footer{
+  text-align:center;padding:32px;background:#eff6ff;color:#475569;border-top:1px solid #dbeafe
+}
+.fade{opacity:0;transform:translateY(36px)}
+
+@media (max-width:980px){
+  .hero-wrap{grid-template-columns:1fr}
+  .hero h1{font-size:46px}
+}
+@media (max-width:768px){
+  nav{flex-direction:column;gap:12px;padding:14px 5%}
+  .hero{padding:172px 5% 84px}
+  section{padding:78px 5%}
+  .hero h1{font-size:38px}
+  .subtitle{font-size:20px}
+  .profile-image{width:120px;height:120px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Manoj Panduraj</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#competencies">Competencies</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
+<section class="hero fade" id="home">
+  <div class="hero-wrap">
+
+    <!-- Left side -->
+    <div>
+      <div class="badge">Open to Relocation • Based in Kingston, United Kingdom</div>
+      <h1>Manoj Panduraj</h1>
+      <p class="subtitle">DevOps Engineer | Site Reliability Engineer | Cloud Engineer</p>
+      <p class="skills-line">Kubernetes • Terraform • AWS • GCP • CI/CD • Observability</p>
+      <p class="contact-line">Building reliable cloud platforms, scalable Kubernetes systems, and production-ready automation.</p>
+
+      <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="./resume.pdf" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; text-decoration:none; box-shadow:0 8px 18px rgba(37,99,235,0.18); transition:all .25s ease;">
+          📄 Resume
+        </a>
+
+        <a href="https://www.linkedin.com/in/manoj-panduraj-637876193" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:#ffffff; color:#2563eb; border:1px solid #dbeafe; text-decoration:none; box-shadow:0 4px 12px rgba(37,99,235,0.08); transition:all .25s ease;">
+          🔗 LinkedIn
+        </a>
+
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:#ffffff; color:#2563eb; border:1px solid #dbeafe; text-decoration:none; box-shadow:0 4px 12px rgba(37,99,235,0.08); transition:all .25s ease;">
+          💻 GitHub
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manojsbala.03@gmail.com"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:#ffffff; color:#2563eb; border:1px solid #dbeafe; text-decoration:none; box-shadow:0 4px 12px rgba(37,99,235,0.08); transition:all .25s ease;">
+          ✉️ Email
+        </a>
+
+        <a href="https://wa.me/447887961488"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:#ffffff; color:#2563eb; border:1px solid #dbeafe; text-decoration:none; box-shadow:0 4px 12px rgba(37,99,235,0.08); transition:all .25s ease;">
+          📞 +44 78879 61488
+        </a>
+
+        <a href="https://wa.me/919986439395"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; font-size:13px; font-weight:600; border-radius:999px; background:#ffffff; color:#2563eb; border:1px solid #dbeafe; text-decoration:none; box-shadow:0 4px 12px rgba(37,99,235,0.08); transition:all .25s ease;">
+          📞 +91 99864 39395
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side -->
+    <div class="hero-card">
+      <div class="profile-wrap">
+        <img src="./profile.jpg" alt="Manoj Panduraj" class="profile-image">
+      </div>
+
+      <h3 style="margin-bottom:12px;">Professional Snapshot</h3>
+      <p style="color:#475569;">
+        GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms and Kubernetes workloads.
+        Strong in IaC, observability, cloud migration, and security-by-design.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <h3>3</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat">
+          <h3>30%</h3>
+          <p>Deployment Efficiency Gain</p>
+        </div>
+        <div class="stat">
+          <h3>25%</h3>
+          <p>Incident Response Reduction</p>
+        </div>
+        <div class="stat">
+          <h3>20%</h3>
+          <p>Manual Effort Reduced</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="fade">
+  <div class="kpi">
+    <div class="card"><h3>GKE / EKS</h3><p>Production Kubernetes Management</p></div>
+    <div class="card"><h3>AWS → GCP</h3><p>Enterprise Migration Support</p></div>
+    <div class="card"><h3>Terraform</h3><p>Secure Infrastructure as Code</p></div>
+    <div class="card"><h3>Splunk + NR</h3><p>Observability & Incident Response</p></div>
+  </div>
+</section>
+
+<section id="about" class="fade">
+  <h2>Professional Summary</h2>
+  <p class="section-intro">
+    Your resume content is presented below in a cleaner portfolio format, while keeping it professional and recruiter-friendly.
+  </p>
+  <div class="card">
+    <p>
+      GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms and Kubernetes workloads.
+      Hands-on expertise in GKE/EKS, Terraform (IaC), CI/CD automation (GitHub Actions), and observability using Splunk, New Relic,
+      and Coralogix. Supported AWS to GCP migration initiatives, ensuring smooth cutover and stable production operations. Strong in
+      incident response, RCA and security-by-design (IAM/RBAC), currently pursuing an MSc in Data Science at the University of Roehampton, London.
+    </p>
+  </div>
+</section>
+
+<section id="experience" class="fade">
+  <h2>Work History</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h3>DevOps Engineer</h3>
+      <h4>Applied Cloud Computing (Client: Zee Entertainment Enterprises Ltd)</h4>
+      <div class="meta"><span>Dec 2023 - Jan 2025</span><span>Bengaluru, India</span></div>
+      <ul>
+        <li>Supported AWS to GCP migration for enterprise workloads, ensuring smooth cutover and stable post-migration production operations.</li>
+        <li>Managed production Kubernetes clusters (GKE/EKS) supporting high-availability cloud infrastructure workloads, including health checks, troubleshooting and upgrade support to ensure reliability.</li>
+        <li>Engineered and streamlined CI/CD pipelines (GitHub Actions/Jenkins), improving deployment efficiency by 30%.</li>
+        <li>Contributed to Terraform-based IaC modules for secure, repeatable provisioning across GCP/AWS environments.</li>
+        <li>Strengthened observability using Splunk and New Relic, tuning alerts/dashboards to reduce incident response time by 25% and improve MTTR.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Site Reliability Engineer</h3>
+      <h4>Randstad India Private Limited (Client: Zee Entertainment Enterprises Ltd)</h4>
+      <div class="meta"><span>May 2023 - Dec 2023</span><span>Bengaluru, India</span></div>
+      <ul>
+        <li>Supported production GCP cloud services and Kubernetes workloads, improving platform reliability and release velocity.</li>
+        <li>Reduced operational toil by automating repetitive tasks, achieving 20% reduction in manual effort.</li>
+        <li>Automated deployments and release workflows using CI/CD pipelines and Git-based practices.</li>
+        <li>Improved monitoring and alerting using Splunk/New Relic, enabling faster incident detection and troubleshooting.</li>
+        <li>Investigated production incidents, performed RCA, optimized workloads for performance/efficiency, and participated in on-call support.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Subject Matter Expert (Freelance)</h3>
+      <h4>Chegg India Private Limited</h4>
+      <div class="meta"><span>Apr 2022 - May 2023</span><span>Remote</span></div>
+      <ul>
+        <li>Provided computer science subject matter support to global learners, delivering clear and accurate solutions across core CS topics.</li>
+        <li>Maintained strong attention to detail and academic standards to support Chegg’s global education mission.</li>
+        <li>Ensured high-quality, timely delivery of solutions while managing workload independently in a freelance environment.</li>
+        <li>Maintained a flexible work schedule as a freelance contractor, accommodating student demands and deadlines.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="fade">
+  <h2>Projects</h2>
+  <p class="section-intro">
+    These project cards are professional DevOps portfolio placeholders that match your resume and can be replaced later with your real GitHub repositories or deployed demos.
+  </p>
+  <div class="grid">
+    <div class="card project-card">
+      <h3>Multi-Environment Kubernetes Deployment Platform</h3>
+      <p>Designed a reusable deployment framework for development, staging, and production Kubernetes environments using Helm, Terraform, and GitHub Actions.</p>
+      <ul>
+        <li>Standardized releases across environments with repeatable infrastructure provisioning.</li>
+        <li>Integrated CI/CD automation with secure secrets handling and rollout validation.</li>
+        <li>Improved deployment consistency and reduced manual configuration drift.</li>
+      </ul>
+      <div class="project-actions">
+        <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card project-card">
+      <h3>Cloud Migration Readiness & Cutover Automation</h3>
+      <p>Built a migration support workflow for AWS to GCP transitions covering provisioning, validation checklists, and post-cutover monitoring readiness.</p>
+      <ul>
+        <li>Created Terraform templates for faster and safer cloud resource setup.</li>
+        <li>Defined rollback-aware deployment steps and smoke-test verification.</li>
+        <li>Aligned observability dashboards for stable post-migration production operations.</li>
+      </ul>
+      <div class="project-actions">
+        <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card project-card">
+      <h3>Observability & Incident Response Dashboard Suite</h3>
+      <p>Implemented operational dashboards and alert tuning workflows with Splunk, New Relic, and Cloud monitoring tools for production systems.</p>
+      <ul>
+        <li>Centralized logs, metrics, and alert signals for faster diagnosis.</li>
+        <li>Reduced noise through alert tuning and prioritization logic.</li>
+        <li>Supported MTTR improvement with RCA-friendly dashboards.</li>
+      </ul>
+      <div class="project-actions">
+        <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="card project-card">
+      <h3>Secure Infrastructure as Code Modules</h3>
+      <p>Developed modular Terraform components for cloud networking, IAM, and workload deployment with security-by-design principles.</p>
+      <ul>
+        <li>Enabled repeatable provisioning across AWS and GCP environments.</li>
+        <li>Applied RBAC, IAM controls, and environment-specific configurations.</li>
+        <li>Improved maintainability for cloud platform teams.</li>
+      </ul>
+      <div class="project-actions">
+        <a class="mini-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competencies" class="fade">
+  <h2>Core Competencies</h2>
+  <div class="grid">
+    <div class="card"><h3>Platform Engineering</h3><p>Designing scalable and secure cloud-native infrastructure.</p></div>
+    <div class="card"><h3>SRE & Reliability</h3><p>Production support, incident response, RCA, and MTTR reduction.</p></div>
+    <div class="card"><h3>Infrastructure Automation</h3><p>Building reusable and repeatable infrastructure provisioning.</p></div>
+    <div class="card"><h3>CI/CD Delivery</h3><p>Automating build, test, and deployment workflows.</p></div>
+    <div class="card"><h3>Observability</h3><p>Monitoring, logging, alerting, and incident analysis.</p></div>
+    <div class="card"><h3>Cloud Operations</h3><p>Managing and optimizing multi-cloud environments.</p></div>
+    <div class="card"><h3>Security</h3><p>Implementing IAM, access control, and platform governance.</p></div>
+    <div class="card"><h3>Ways of Working</h3><p>Agile practices, documentation, and cross-team collaboration.</p></div>
+  </div>
+</section>
+
+<section id="skills" class="fade">
+  <h2>Technical Skills</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="category-title">Cloud</div>
+      <span class="tag">Google Cloud Platform (GCP)</span><span class="tag">AWS</span><span class="tag">Microsoft Azure</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Kubernetes & Containers</div>
+      <span class="tag">Kubernetes</span><span class="tag">GKE</span><span class="tag">EKS</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">Ingress</span><span class="tag">RBAC</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Infrastructure as Code</div>
+      <span class="tag">Terraform</span>
+    </div>
+    <div class="card">
+      <div class="category-title">CI/CD & GitOps</div>
+      <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Argo CD</span><span class="tag">Git</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Secrets Management</div>
+      <span class="tag">GCP Secret Manager</span><span class="tag">AWS Secrets Manager</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Observability</div>
+      <span class="tag">Cloud Operations</span><span class="tag">AWS CloudWatch</span><span class="tag">New Relic</span><span class="tag">Splunk</span><span class="tag">Coralogix</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Web / CDN</div>
+      <span class="tag">Akamai</span><span class="tag">AWS CloudFront</span><span class="tag">Google Cloud CDN</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Service Mesh</div>
+      <span class="tag">Istio</span><span class="tag">Anthos Service Mesh</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Databases</div>
+      <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MariaDB</span><span class="tag">DynamoDB</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">ScyllaDB</span><span class="tag">Cloud SQL</span><span class="tag">Spanner</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Scripting</div>
+      <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Shell</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Operating Systems</div>
+      <span class="tag">Linux</span><span class="tag">RHEL</span><span class="tag">Ubuntu</span><span class="tag">CentOS</span>
+    </div>
+    <div class="card">
+      <div class="category-title">Tools</div>
+      <span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Microsoft Teams</span>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="fade">
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card"><h3>Google Cloud Associate Cloud Engineer</h3><p>Expected Completion: Apr 2026</p></div>
+    <div class="card"><h3>Microsoft Azure Fundamentals (AZ-900)</h3><p>Expected Completion: Apr 2026</p></div>
+  </div>
+</section>
+
+<section id="education" class="fade">
+  <h2>Education</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>M.Sc in Data Science</h3>
+      <p>University of Roehampton, London, United Kingdom</p>
+      <p>Jan 2025 - Present</p>
+    </div>
+    <div class="card">
+      <h3>B.Tech in Computer Science Engineering</h3>
+      <p>Dayananda Sagar University, Bengaluru, India</p>
+      <p>Aug 2018 - Apr 2022</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Manoj Panduraj • DevOps Engineer Portfolio</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from('.badge',{y:24,opacity:0,duration:.7});
+gsap.from('.hero h1',{y:40,opacity:0,duration:1,delay:.15});
+gsap.from('.subtitle,.skills-line,.contact-line',{y:24,opacity:0,duration:.8,stagger:.12,delay:.35});
+gsap.from('.hero-card',{x:40,opacity:0,duration:.9,delay:.35});
+gsap.from('.profile-wrap',{scale:.85,opacity:0,duration:.8,delay:.45});
+
+document.querySelectorAll('.fade').forEach((sec)=>{
+  gsap.fromTo(
+    sec,
+    {opacity:0,y:38},
+    {opacity:1,y:0,duration:.95,ease:'power3.out',scrollTrigger:{trigger:sec,start:'top 84%'}}
+  );
+});
+
+gsap.utils.toArray('.card').forEach((el)=>{
+  gsap.from(el,{opacity:0,y:26,duration:.75,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+</script>
+
+</body>
+</html>
