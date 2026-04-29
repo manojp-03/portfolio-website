@@ -19,6 +19,8 @@ jobs:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
-          source: "index.html,profile.jpg,resume.pdf"
+          source: "public/index.html,public/profile.jpg,public/resume.pdf"
           target: "/home/manojsbala_03"
           overwrite: true
+
+          
