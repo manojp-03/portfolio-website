@@ -4,10 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj Panduraj | DevOps & SRE</title>
+    <title>Manoj Panduraj | DevOps & SRE & Cloud Engineer</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Manoj Panduraj | DevOps & SRE & Cloud Engineer">
+    <meta name="description" content="GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms and Kubernetes workloads.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manojpanduraj.com/">
+    <meta property="og:title" content="Manoj Panduraj | DevOps & SRE & Cloud Engineer">
+    <meta property="og:description" content="GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms and Kubernetes workloads.">
+    <meta property="og:image" content="https://manojpanduraj.com/profile.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://manojpanduraj.com/">
+    <meta property="twitter:title" content="Manoj Panduraj | DevOps & SRE & Cloud Engineer">
+    <meta property="twitter:description" content="GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms and Kubernetes workloads.">
+    <meta property="twitter:image" content="https://manojpanduraj.com/profile.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
     <style>
         @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900&f[]=satoshi@400,500,700&display=swap');
 
@@ -103,9 +124,19 @@
         }
 
         @keyframes data-pulse {
-            0% { left: 0; opacity: 0; }
-            50% { opacity: 1; }
-            100% { left: 100%; opacity: 0; }
+            0% {
+                left: 0;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
         }
 
         .animate-data-pulse {
@@ -116,24 +147,6 @@
 </head>
 
 <body>
-    <!-- System Health Top Bar -->
-    <div id="system-bar" class="fixed top-0 left-0 w-full z-[100] bg-slate-900 px-4 py-1.5 hidden md:flex justify-between items-center font-mono text-[10px] tracking-widest text-slate-400 border-b border-white/5">
-        <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                <span>SYSTEM: <span class="text-white">HEALTHY</span></span>
-            </div>
-            <span class="opacity-20">|</span>
-            <span>ENV: <span class="text-blue-400">PROD</span></span>
-            <span class="opacity-20">|</span>
-            <span>REGION: <span class="text-slate-300">EU-WEST-2</span></span>
-        </div>
-        <div class="flex items-center gap-4">
-            <span id="scroll-progress-cli" class="text-blue-400">PORTFOLIO_DEPLOY: [          ] 0%</span>
-            <span class="opacity-20">|</span>
-            <span>Uptime: <span id="uptime-val">99.99%</span></span>
-        </div>
-    </div>
 
     <div class="min-h-screen relative overflow-hidden">
 
@@ -145,23 +158,42 @@
 
             <!-- Navigation Header -->
             <nav
-                class="fixed top-0 md:top-8 w-full px-8 py-4 flex justify-between items-center z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
-                <div class="flex items-center gap-2">
-                    <a href="#home" class="flex items-center gap-2">
+                class="fixed top-0 w-full px-8 py-4 flex justify-between items-center z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+                <div class="flex flex-col gap-1.5">
+                    <a href="#home" class="flex items-center gap-2 w-fit">
                         <span
                             class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-blue-600 drop-shadow-sm"
                             style="font-family: 'Satoshi', sans-serif;">Manoj Panduraj</span>
                     </a>
+                    <!-- Compact Terminal in Nav -->
+                    <div id="system-bar"
+                        class="flex items-center gap-2 font-mono text-[8px] sm:text-[9px] tracking-widest text-slate-500">
+                        <div class="flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                            <span>SYS: <span class="text-slate-800 font-bold">OK</span></span>
+                        </div>
+                        <span class="opacity-30">|</span>
+                        <span>ENV: <span class="text-blue-600 font-bold">PROD</span></span>
+                        <span class="opacity-30">|</span>
+                        <span class="hidden sm:inline">REG: <span
+                                class="text-slate-800 font-bold">EU-WEST-2</span></span>
+                        <span class="opacity-30 hidden xl:inline">|</span>
+                        <span id="scroll-progress-cli"
+                            class="text-blue-600 hidden xl:inline font-bold">PORTFOLIO_DEPLOY: [ ] 0%</span>
+                        <span class="opacity-30 hidden xl:inline">|</span>
+                        <span class="hidden xl:inline">UPTIME: <span id="uptime-val"
+                                class="text-slate-800 font-bold">99.99%</span></span>
+                    </div>
                 </div>
                 <div
                     class="hidden lg:flex items-center gap-6 xl:gap-8 font-semibold text-slate-600 text-sm tracking-wide">
-                      <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-                      <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-                      <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-                      <a href="#competencies" class="hover:text-blue-600 transition-colors">Competencies</a>
-                      <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-                      <a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
-                      <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+                    <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                    <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="#competencies" class="hover:text-blue-600 transition-colors">Competencies</a>
+                    <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
+                    <a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
+                    <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
                 </div>
             </nav>
 
@@ -189,6 +221,8 @@
                             Building reliable cloud platforms, scalable Kubernetes systems, and production-ready
                             automation.
                         </p>
+
+
                         <div class="flex flex-wrap gap-4 pt-4">
                             <a href="resume.pdf" target="_blank"
                                 class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-bold shadow-md hover:bg-blue-700 transition-colors">
@@ -223,61 +257,65 @@
                         </div>
                     </div>
 
-              <!-- Right side -->
-              <div class="lg:col-span-5 relative mt-20 lg:mt-0">
-                  <div
-                      class="bg-white/75 backdrop-blur-2xl p-7 md:p-8 rounded-[28px] shadow-[0_30px_80px_rgba(37,99,235,0.16)] border border-blue-100/80 relative parallax-card overflow-visible min-h-[470px]">
+                    <!-- Right side -->
+                    <div class="lg:col-span-5 relative mt-20 lg:mt-0">
+                        <div
+                            class="bg-white/75 backdrop-blur-2xl p-7 md:p-8 rounded-[28px] shadow-[0_30px_80px_rgba(37,99,235,0.16)] border border-blue-100/80 relative parallax-card overflow-visible min-h-[470px]">
 
-                      <!-- Profile Image inside card top center -->
-                      <div class="flex justify-center -mt-16 mb-6">
-                          <div
-                              class="w-36 h-36 rounded-full overflow-hidden border-[7px] border-white shadow-[0_18px_45px_rgba(15,23,42,0.18)] bg-slate-100 relative animate-float">
-                              <img src="profile.jpg" alt="Manoj Panduraj" class="w-full h-full object-cover">
-                              <div
-                                  class="absolute inset-0 rounded-full shadow-[inset_0_0_24px_rgba(0,0,0,0.12)] pointer-events-none">
-                              </div>
-                          </div>
-                      </div>
+                            <!-- Profile Image inside card top center -->
+                            <div class="flex justify-center -mt-16 mb-6">
+                                <div
+                                    class="w-36 h-36 rounded-full overflow-hidden border-[7px] border-white shadow-[0_18px_45px_rgba(15,23,42,0.18)] bg-slate-100 relative animate-float">
+                                    <img src="profile.jpg" alt="Manoj Panduraj" class="w-full h-full object-cover">
+                                    <div
+                                        class="absolute inset-0 rounded-full shadow-[inset_0_0_24px_rgba(0,0,0,0.12)] pointer-events-none">
+                                    </div>
+                                </div>
+                            </div>
 
-                      <div class="space-y-5">
-                          <h3 class="text-2xl font-black text-slate-900 tracking-tight">
-                              Professional Snapshot
-                          </h3>
+                            <div class="space-y-5">
+                                <h3 class="text-2xl font-black text-slate-900 tracking-tight">
+                                    Professional Snapshot
+                                </h3>
 
-                          <p class="text-slate-600 leading-relaxed text-[15px] md:text-base max-w-[520px]">
-                              GCP-focused DevOps/SRE engineer with 3 years of experience supporting production
-                              cloud platforms and Kubernetes workloads. Strong in IaC, observability, cloud
-                              migration, and security-by-design.
-                          </p>
+                                <p class="text-slate-600 leading-relaxed text-[15px] md:text-base max-w-[520px]">
+                                    GCP-focused DevOps/SRE engineer with 3 years of experience supporting production
+                                    cloud platforms and Kubernetes workloads. Strong in IaC, observability, cloud
+                                    migration, and security-by-design.
+                                </p>
 
-                          <div class="grid grid-cols-2 gap-4 pt-3">
-                              <div
-                                  class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                  <div class="text-4xl font-black text-blue-600 mb-3">3</div>
-                                  <div class="text-slate-900 font-medium text-base leading-snug">Years Experience</div>
-                              </div>
+                                <div class="grid grid-cols-2 gap-4 pt-3">
+                                    <div
+                                        class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div class="text-4xl font-black text-blue-600 mb-3">3</div>
+                                        <div class="text-slate-900 font-medium text-base leading-snug">Years Experience
+                                        </div>
+                                    </div>
 
-                              <div
-                                  class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                  <div class="text-4xl font-black text-blue-600 mb-3">30%</div>
-                                  <div class="text-slate-900 font-medium text-base leading-snug">Deployment Efficiency Gain</div>
-                              </div>
+                                    <div
+                                        class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div class="text-4xl font-black text-blue-600 mb-3">30%</div>
+                                        <div class="text-slate-900 font-medium text-base leading-snug">Deployment
+                                            Efficiency Gain</div>
+                                    </div>
 
-                              <div
-                                  class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                  <div class="text-4xl font-black text-blue-600 mb-3">25%</div>
-                                  <div class="text-slate-900 font-medium text-base leading-snug">Incident Response Reduction</div>
-                              </div>
+                                    <div
+                                        class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div class="text-4xl font-black text-blue-600 mb-3">25%</div>
+                                        <div class="text-slate-900 font-medium text-base leading-snug">Incident Response
+                                            Reduction</div>
+                                    </div>
 
-                              <div
-                                  class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                  <div class="text-4xl font-black text-blue-600 mb-3">20%</div>
-                                  <div class="text-slate-900 font-medium text-base leading-snug">Manual Effort Reduced</div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                                    <div
+                                        class="border border-blue-100 rounded-2xl p-5 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div class="text-4xl font-black text-blue-600 mb-3">20%</div>
+                                        <div class="text-slate-900 font-medium text-base leading-snug">Manual Effort
+                                            Reduced</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- KPIs -->
@@ -428,7 +466,7 @@
                 </div>
             </section>
 
-                    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+            <section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <div class="reveal-on-scroll mb-12">
                     <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Projects</h2>
                 </div>
@@ -446,21 +484,28 @@
                                 class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
                             </div>
                             <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                                <h3
+                                    class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
                                     Grafana & Prometheus Monitoring Stack</h3>
-                                <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
                             </div>
-                            <p class="text-slate-600 text-sm mb-6">Deployed and managed a robust observability ecosystem for real-time tracking of infrastructure health and application performance metrics.</p>
+                            <p class="text-slate-600 text-sm mb-6">Deployed and managed a robust observability ecosystem
+                                for real-time tracking of infrastructure health and application performance metrics.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Prometheus exporters for granular metric collection.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Prometheus exporters for
+                                    granular metric collection.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Advanced Grafana dashboards with dynamic alerting and heatmaps.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Advanced Grafana dashboards with
+                                    dynamic alerting and heatmaps.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>AlertManager integration for automated Slack and PagerDuty notifications.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>AlertManager integration for
+                                    automated Slack and PagerDuty notifications.</li>
                             </ul>
                             <div class="flex gap-4">
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Stack: Prometheus, Grafana, AlertManager</span>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Stack:
+                                    Prometheus, Grafana, AlertManager</span>
                             </div>
                         </div>
 
@@ -471,18 +516,24 @@
                                 class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
                             </div>
                             <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                                <h3
+                                    class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
                                     3D Immersive DevOps Portfolio</h3>
-                                <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
                             </div>
-                            <p class="text-slate-600 text-sm mb-6">A high-performance Single-Page Application (SPA) designed to demonstrate technical expertise through interactive 3D visualizations.</p>
+                            <p class="text-slate-600 text-sm mb-6">A high-performance Single-Page Application (SPA)
+                                designed to demonstrate technical expertise through interactive 3D visualizations.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Three.js 3D background with dynamic mouse-tracking particles.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Three.js 3D background with
+                                    dynamic mouse-tracking particles.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Glassmorphic UI design built with Tailwind CSS and GSAP animations.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Glassmorphic UI design built with
+                                    Tailwind CSS and GSAP animations.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Interactive Cloud Shell terminal UI for DevOps-themed engagement.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Interactive Cloud Shell terminal UI
+                                    for DevOps-themed engagement.</li>
                             </ul>
                             <a href="#"
                                 class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
@@ -507,15 +558,18 @@
                             <h3
                                 class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
                                 Multi-Environment Kubernetes Deployment Platform</h3>
-                            <p class="text-slate-600 text-sm mb-6">Designed a reusable deployment framework for development,
-                                staging, and production Kubernetes environments using Helm, Terraform, and GitHub Actions.
+                            <p class="text-slate-600 text-sm mb-6">Designed a reusable deployment framework for
+                                development,
+                                staging, and production Kubernetes environments using Helm, Terraform, and GitHub
+                                Actions.
                             </p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
                                         class="text-blue-400 mt-0.5"></iconify-icon>Standardized releases across
                                     environments with repeatable infrastructure provisioning.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Integrated CI/CD automation with secure
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Integrated CI/CD automation with
+                                    secure
                                     secrets handling and rollout validation.</li>
                             </ul>
                             <a href="https://github.com/manoj-panduraj" target="_blank"
@@ -537,10 +591,12 @@
                                 readiness.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Created Terraform templates for faster
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Created Terraform templates for
+                                    faster
                                     and safer cloud resource setup.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Defined rollback-aware deployment steps
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Defined rollback-aware deployment
+                                    steps
                                     and smoke-test verification.</li>
                             </ul>
                             <a href="https://github.com/manoj-panduraj" target="_blank"
@@ -564,7 +620,8 @@
                                         class="text-blue-400 mt-0.5"></iconify-icon>Centralized logs, metrics, and alert
                                     signals for faster diagnosis.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Reduced noise through alert tuning and
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Reduced noise through alert tuning
+                                    and
                                     prioritization logic.</li>
                             </ul>
                             <a href="https://github.com/manoj-panduraj" target="_blank"
@@ -585,10 +642,12 @@
                                 networking, IAM, and workload deployment with security-by-design principles.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Enabled repeatable provisioning across
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Enabled repeatable provisioning
+                                    across
                                     AWS and GCP environments.</li>
                                 <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Implemented automated policy checks (Sentinel/OPA) for IaC compliance.</li>
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Implemented automated policy checks
+                                    (Sentinel/OPA) for IaC compliance.</li>
                             </ul>
                             <a href="https://github.com/manoj-panduraj" target="_blank"
                                 class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
@@ -1137,13 +1196,13 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = Math.round((winScroll / height) * 100);
-            
+
             // Generate progress bar [=====>     ]
             const barsCount = 10;
             const filledCount = Math.floor(scrolled / (100 / barsCount));
             const emptyCount = barsCount - filledCount;
             const bar = '='.repeat(filledCount) + (filledCount < barsCount ? '>' : '') + ' '.repeat(Math.max(0, emptyCount - 1));
-            
+
             if (scrollProgressCli) {
                 scrollProgressCli.textContent = `PORTFOLIO_DEPLOY: [${bar}] ${scrolled}%`;
             }
@@ -1159,69 +1218,232 @@
             }, 3000);
         }
 
-        // Feedback Bot Widget
         const feedbackBot = document.createElement('div');
-        feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 hidden md:flex';
+        feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 hidden md:flex perspective-container';
         feedbackBot.innerHTML = `
-            <div class="glass-panel p-4 rounded-2xl border shadow-2xl flex flex-col gap-3 max-w-[200px] relative animate-float">
-                <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45"></div>
-                <p class="text-[11px] font-black text-slate-800 leading-tight">Hi! I'm Lexa. Enjoying the site?</p>
-                <div class="flex gap-2">
-                    <button id="like-btn" class="flex-1 p-2 rounded-lg bg-slate-50 hover:bg-green-50 text-slate-400 hover:text-green-600 transition-all border border-slate-100 flex flex-col items-center gap-1">
-                        <iconify-icon icon="lucide:thumbs-up" class="text-lg"></iconify-icon>
-                        <span id="like-count" class="text-[10px] font-black">1</span>
+            <div class="glass-panel p-4 rounded-[24px] border border-white/80 shadow-[0_20px_50px_-12px_rgba(37,99,235,0.3),inset_0_2px_15px_rgba(255,255,255,0.9)] flex flex-col gap-3 max-w-[210px] relative animate-float transform transition-all duration-500 hover:rotate-y-[-5deg] hover:rotate-x-[5deg] hover:scale-105" style="transform-style: preserve-3d;">
+                <!-- Glossy overlay -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/80 rounded-[24px] pointer-events-none"></div>
+                
+                <div class="absolute -bottom-2 right-6 w-5 h-5 bg-white/95 border-r border-b border-blue-100 rotate-45 shadow-[2px_2px_5px_rgba(37,99,235,0.1)]"></div>
+                
+                <p class="text-[12px] font-black text-slate-800 leading-tight relative z-10 drop-shadow-sm" style="transform: translateZ(20px);">Hi! I'm Lexa. Enjoying the site?</p>
+                
+                <!-- Live Details Status Block -->
+                <div class="bg-gradient-to-b from-blue-50/90 to-white/90 rounded-xl p-2.5 font-mono text-[9px] text-slate-600 w-full flex flex-col gap-1.5 border border-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.03),0_5px_15px_rgba(37,99,235,0.15)] relative z-10" style="transform: translateZ(30px);">
+                    <div class="flex items-center gap-1.5 border-b border-blue-100/80 pb-1 mb-0.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                        <span class="text-blue-600 font-bold tracking-widest uppercase text-[8px] drop-shadow-sm">Live Status</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-slate-500">VIEWS:</span>
+                        <span id="total-views-val" class="text-slate-900 font-black">1</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-slate-500">LIKES:</span>
+                        <span id="like-count" class="text-blue-600 font-black">1</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-slate-500">DISLIKES:</span>
+                        <span id="dislike-count" class="text-red-500 font-black">0</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 relative z-10" style="transform: translateZ(40px);">
+                    <button id="like-btn" class="flex-1 py-1.5 rounded-xl bg-gradient-to-b from-white to-slate-50 hover:to-green-50 text-slate-400 hover:text-green-600 transition-all border border-blue-100 shadow-[0_4px_0_rgba(219,234,254,1),0_8px_15px_rgba(37,99,235,0.1)] active:shadow-none active:translate-y-[4px] flex items-center justify-center">
+                        <iconify-icon icon="lucide:thumbs-up" class="text-lg drop-shadow-sm"></iconify-icon>
                     </button>
-                    <button id="dislike-btn" class="p-2 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 transition-all border border-slate-100 flex items-center justify-center">
-                        <iconify-icon icon="lucide:thumbs-down" class="text-lg"></iconify-icon>
+                    <button id="dislike-btn" class="flex-1 py-1.5 rounded-xl bg-gradient-to-b from-white to-slate-50 hover:to-red-50 text-slate-400 hover:text-red-600 transition-all border border-blue-100 shadow-[0_4px_0_rgba(219,234,254,1),0_8px_15px_rgba(37,99,235,0.1)] active:shadow-none active:translate-y-[4px] flex items-center justify-center">
+                        <iconify-icon icon="lucide:thumbs-down" class="text-lg drop-shadow-sm"></iconify-icon>
                     </button>
                 </div>
-                <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold"></p>
+                <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold relative z-10" style="transform: translateZ(20px);"></p>
             </div>
-            <div class="w-12 h-12 rounded-full bg-slate-900 shadow-lg flex items-center justify-center text-white border-4 border-white animate-bounce-subtle">
-                <iconify-icon icon="fa6-brands:linux" class="text-2xl"></iconify-icon>
+            
+            <!-- 3D Orb Avatar -->
+            <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-600 via-blue-500 to-cyan-300 shadow-[0_15px_30px_rgba(37,99,235,0.4),inset_0_-4px_10px_rgba(0,0,0,0.2),inset_0_6px_10px_rgba(255,255,255,0.6)] flex items-center justify-center text-white border-2 border-white/80 animate-bounce-subtle cursor-pointer transform transition-transform hover:scale-110">
+                <iconify-icon icon="mingcute:robot-line" class="text-3xl drop-shadow-[0_4px_4px_rgba(0,0,0,0.3)]"></iconify-icon>
             </div>
         `;
 
         document.body.appendChild(feedbackBot);
 
-        // Tracking Logic
+        // Tracking Logic (Firebase Realtime & Local Fallback)
         let hasVoted = localStorage.getItem('manoj_portfolio_voted');
         const likeBtn = document.getElementById('like-btn');
         const dislikeBtn = document.getElementById('dislike-btn');
         const likeCountLabel = document.getElementById('like-count');
+        const dislikeCountLabel = document.getElementById('dislike-count');
         const botStatus = document.getElementById('bot-status');
-        
+        const liveUsersVal = document.getElementById('live-users-val');
+
         let baseLikes = 1;
+        let baseDislikes = 0;
+
+        // Visual setup based on local storage
         if (hasVoted === 'like') {
             likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
-            likeCountLabel.textContent = baseLikes + 1;
             botStatus.textContent = "Thanks! Appreciate it";
             botStatus.classList.remove('hidden');
         } else if (hasVoted === 'dislike') {
             dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
-            botStatus.textContent = "Ohh";
+            botStatus.textContent = "Ohh, understood";
             botStatus.classList.remove('hidden');
         }
 
-        likeBtn.addEventListener('click', () => {
-            if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
-            localStorage.setItem('manoj_portfolio_voted', 'like');
-            likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
-            dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
-            likeCountLabel.textContent = baseLikes + 1;
-            botStatus.textContent = "Thanks! Appreciate it";
-            botStatus.classList.remove('hidden');
-        });
+        // ==========================================
+        // FIREBASE CONFIGURATION (Replace with yours)
+        // ==========================================
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
 
-        dislikeBtn.addEventListener('click', () => {
-            if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
-            localStorage.setItem('manoj_portfolio_voted', 'dislike');
-            dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
-            likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
-            likeCountLabel.textContent = baseLikes;
-            botStatus.textContent = "Ohh";
-            botStatus.classList.remove('hidden');
-        });
+        const isFirebaseConfigured = firebaseConfig.apiKey !== "YOUR_API_KEY";
+
+        if (isFirebaseConfigured) {
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const database = firebase.database();
+
+            // 1. Live Users Presence System
+            const connectedRef = database.ref(".info/connected");
+            const liveUsersRef = database.ref("metrics/live_users");
+            let mySessionRef = null;
+
+            connectedRef.on("value", (snap) => {
+                if (snap.val() === true) {
+                    mySessionRef = liveUsersRef.push();
+                    mySessionRef.onDisconnect().remove();
+                    mySessionRef.set(true);
+                }
+            });
+
+            liveUsersRef.on("value", (snap) => {
+                const count = snap.numChildren() || 1;
+                if (liveUsersVal) liveUsersVal.textContent = count;
+            });
+
+            // 2. Live Reactions (Likes/Dislikes) & Views
+            const statsRef = database.ref("metrics/stats");
+            const totalViewsVal = document.getElementById('total-views-val');
+
+            // Increment views on load
+            if (!sessionStorage.getItem('manoj_portfolio_viewed')) {
+                sessionStorage.setItem('manoj_portfolio_viewed', 'true');
+                statsRef.child('views').transaction((currentViews) => {
+                    return (currentViews || 0) + 1;
+                });
+            }
+
+            // Listen for global changes
+            statsRef.on("value", (snap) => {
+                const data = snap.val() || { likes: 1, dislikes: 0, views: 1 };
+                likeCountLabel.textContent = data.likes || 0;
+                if (dislikeCountLabel) dislikeCountLabel.textContent = data.dislikes || 0;
+                if (totalViewsVal) totalViewsVal.textContent = data.views || 0;
+            });
+
+            // Handlers using Firebase Transactions
+            likeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
+
+                let previousVote = localStorage.getItem('manoj_portfolio_voted');
+                localStorage.setItem('manoj_portfolio_voted', 'like');
+
+                likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
+                dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
+                botStatus.textContent = "Thanks! Appreciate it";
+                botStatus.classList.remove('hidden');
+
+                statsRef.transaction((currentData) => {
+                    if (currentData === null) {
+                        return { likes: 2, dislikes: 0 }; // Initialize if empty
+                    }
+                    currentData.likes = (currentData.likes || 0) + 1;
+                    if (previousVote === 'dislike' && currentData.dislikes > 0) {
+                        currentData.dislikes -= 1;
+                    }
+                    return currentData;
+                });
+            });
+
+            dislikeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
+
+                let previousVote = localStorage.getItem('manoj_portfolio_voted');
+                localStorage.setItem('manoj_portfolio_voted', 'dislike');
+
+                dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
+                likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
+                botStatus.textContent = "Ohh, understood";
+                botStatus.classList.remove('hidden');
+
+                statsRef.transaction((currentData) => {
+                    if (currentData === null) {
+                        return { likes: 1, dislikes: 1 };
+                    }
+                    currentData.dislikes = (currentData.dislikes || 0) + 1;
+                    if (previousVote === 'like' && currentData.likes > 0) {
+                        currentData.likes -= 1;
+                    }
+                    return currentData;
+                });
+            });
+
+        } else {
+            // FALLBACK: Local State Only (If Firebase is not configured)
+            const totalViewsVal = document.getElementById('total-views-val');
+            let baseViews = parseInt(localStorage.getItem('manoj_portfolio_local_views') || '0');
+
+            if (!sessionStorage.getItem('manoj_portfolio_viewed')) {
+                sessionStorage.setItem('manoj_portfolio_viewed', 'true');
+                baseViews += 1;
+                localStorage.setItem('manoj_portfolio_local_views', baseViews);
+            }
+            if (totalViewsVal) totalViewsVal.textContent = baseViews;
+
+            if (hasVoted === 'like') {
+                likeCountLabel.textContent = baseLikes + 1;
+                if (dislikeCountLabel) dislikeCountLabel.textContent = baseDislikes;
+            } else if (hasVoted === 'dislike') {
+                likeCountLabel.textContent = baseLikes;
+                if (dislikeCountLabel) dislikeCountLabel.textContent = baseDislikes + 1;
+            }
+
+            likeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
+
+                let previousVote = localStorage.getItem('manoj_portfolio_voted');
+                localStorage.setItem('manoj_portfolio_voted', 'like');
+
+                likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
+                dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
+                likeCountLabel.textContent = baseLikes + 1;
+                if (dislikeCountLabel) dislikeCountLabel.textContent = previousVote === 'dislike' ? baseDislikes : baseDislikes;
+                botStatus.textContent = "Thanks! Appreciate it";
+                botStatus.classList.remove('hidden');
+            });
+
+            dislikeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
+
+                let previousVote = localStorage.getItem('manoj_portfolio_voted');
+                localStorage.setItem('manoj_portfolio_voted', 'dislike');
+
+                dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
+                likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
+                if (dislikeCountLabel) dislikeCountLabel.textContent = baseDislikes + 1;
+                likeCountLabel.textContent = previousVote === 'like' ? baseLikes : baseLikes;
+                botStatus.textContent = "Ohh, understood";
+                botStatus.classList.remove('hidden');
+            });
+        }
     </script>
 
 
