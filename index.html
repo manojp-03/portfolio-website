@@ -131,6 +131,13 @@
             transform: translateY(0);
         }
 
+        .blueprint-grid {
+            background-image:
+                linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
         @keyframes data-pulse {
             0% {
                 left: 0;
@@ -183,7 +190,7 @@
                         <span class="opacity-30 hidden sm:inline">|</span>
                         <span>ENV: <span class="text-blue-600 font-bold">PROD</span></span>
                         <span class="opacity-30 hidden sm:inline">|</span>
-                        <span>REG: <span class="text-slate-800 font-bold">EU-WEST-2</span></span>
+                        <span>REG: <span class="text-slate-800 font-bold">us-central1-a</span></span>
                         <span class="opacity-30 hidden sm:inline">|</span>
                         <span id="scroll-progress-cli"
                             class="text-blue-600 font-bold w-full sm:w-auto mt-1 sm:mt-0">PORTFOLIO_DEPLOY: [ ]
@@ -723,6 +730,251 @@
                 </div>
             </section>
 
+            <!-- Interactive Architecture Diagram: Flowing Blueprint -->
+            <section id="architecture" class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+                <div class="reveal-on-scroll mb-16">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-4">
+                        <iconify-icon icon="lucide:workflow"></iconify-icon> System Flow
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Cloud Blueprint
+                    </h2>
+                    <p class="text-slate-600 max-w-2xl text-lg">Bridging development and production reliability through automated GitOps, security-by-design, and real-time observability.</p>
+                </div>
+
+                <div
+                    class="glass-panel p-6 md:p-12 rounded-[40px] parallax-card relative reveal-on-scroll border border-blue-100 shadow-2xl blueprint-grid overflow-x-auto custom-scrollbar">
+
+                    <div class="flex items-start gap-0 min-w-[1200px] py-4 relative z-10">
+
+                        <!-- Step 1: Source -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-md">
+                                        <iconify-icon icon="mdi:github" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        01</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">Source & Secure</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:shield-check" class="text-blue-500"></iconify-icon>
+                                        Secret Scanning
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:git-branch" class="text-blue-500"></iconify-icon>
+                                        Protection Rules
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="flex-shrink-0 w-16 h-24 flex items-center justify-center">
+                            <div class="w-full h-0.5 bg-blue-100 relative">
+                                <div class="absolute inset-0 bg-blue-500 animate-pulse w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: CI -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center shadow-md">
+                                        <iconify-icon icon="logos:github-actions" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        02</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">CI Pipeline</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:zap" class="text-yellow-500"></iconify-icon> GitHub
+                                        Actions
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:test-tube" class="text-yellow-500"></iconify-icon>
+                                        Build Automation
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="flex-shrink-0 w-16 h-24 flex items-center justify-center">
+                            <div class="w-full h-0.5 bg-blue-100 relative">
+                                <div class="absolute inset-0 bg-blue-500 animate-pulse w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Security -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center border border-red-100">
+                                        <iconify-icon icon="mdi:shield-lock" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        03</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">Security Gates</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="mdi:account-lock" class="text-red-400"></iconify-icon> IAM &
+                                        RBAC Audit
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="mdi:shield-search" class="text-red-400"></iconify-icon> Vuln
+                                        Scanning
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="flex-shrink-0 w-16 h-24 flex items-center justify-center">
+                            <div class="w-full h-0.5 bg-blue-100 relative">
+                                <div class="absolute inset-0 bg-blue-500 animate-pulse w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: IaC -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100">
+                                        <iconify-icon icon="logos:terraform-icon" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        04</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">GitOps IaC</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:box" class="text-purple-500"></iconify-icon>
+                                        Terraform Modules
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:layers" class="text-purple-500"></iconify-icon> Drift
+                                        Detection
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="flex-shrink-0 w-16 h-24 flex items-center justify-center">
+                            <div class="w-full h-0.5 bg-blue-100 relative">
+                                <div class="absolute inset-0 bg-blue-500 animate-pulse w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: GKE -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100">
+                                        <iconify-icon icon="logos:google-cloud" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        05</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">Smart Release</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:rocket" class="text-blue-500"></iconify-icon> GKE
+                                        Canary Deploy
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:cpu" class="text-blue-500"></iconify-icon> Pod
+                                        Auto-scaling
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Connector -->
+                        <div class="flex-shrink-0 w-16 h-24 flex items-center justify-center">
+                            <div class="w-full h-0.5 bg-blue-100 relative">
+                                <div class="absolute inset-0 bg-blue-500 animate-pulse w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Observe -->
+                        <div class="flex-shrink-0 w-64">
+                            <div
+                                class="glass-panel p-6 rounded-2xl border border-blue-200 bg-white/80 hover:border-blue-500 transition-all shadow-sm">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center border border-orange-100">
+                                        <iconify-icon icon="logos:new-relic-icon" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Node
+                                        06</span>
+                                </div>
+                                <h4 class="text-sm font-bold text-slate-900 mb-3">Observability Loop</h4>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:activity" class="text-orange-500"></iconify-icon>
+                                        Splunk & New Relic
+                                    </li>
+                                    <li class="flex items-center gap-2 text-[10px] text-slate-500">
+                                        <iconify-icon icon="lucide:refresh-cw" class="text-orange-500"></iconify-icon>
+                                        Incident RCA
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Platform Metrics Overlay -->
+                    <div class="mt-8 pt-6 border-t border-blue-100 relative z-10">
+                        <div class="flex flex-wrap justify-between gap-4">
+                            <div class="flex flex-col">
+                                <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-1">Region
+                                    Status</span>
+                                <span class="text-xs font-bold text-slate-900">us-central1-a</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-1">VM
+                                    instances</span>
+                                <span class="text-xs font-bold text-blue-600">e2-medium </span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-1">System
+                                    Uptime</span>
+                                <span class="text-xs font-bold text-slate-900">99.99% Production Stable</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-1">Security
+                                    Posture</span>
+                                <span class="text-xs font-bold text-green-600">IAM/RBAC Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-center lg:hidden">
+                    <p
+                        class="text-[10px] font-bold text-blue-400 uppercase tracking-widest animate-pulse flex items-center gap-2">
+                        Scroll to see flow <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+                    </p>
+                </div>
+            </section>
+
             <!-- Skills -->
             <section id="skills" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">
@@ -924,26 +1176,44 @@
             </section>
 
             <!-- Certifications -->
-            <section id="certifications" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+            <section id="certifications" class="py-20 px-6 max-w-7xl mx-auto relative z-10 perspective-container">
                 <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">
                     Certifications</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
-                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
-                        <iconify-icon icon="logos:google-cloud" class="text-6xl"></iconify-icon>
-                        <div class="text-center sm:text-left">
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Google Cloud Associate Cloud Engineer</h3>
-                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected
-                                Completion: May 2026</p>
+                        class="glass-panel p-8 rounded-[32px] parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-8 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+                        <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center relative z-10 shrink-0"
+                            style="transform: translateZ(30px);">
+                            <iconify-icon icon="logos:google-cloud" class="text-5xl"></iconify-icon>
+                        </div>
+                        <div class="text-center sm:text-left relative z-10" style="transform: translateZ(20px);">
+                            <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Google Cloud Associate
+                                Cloud Engineer</h3>
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-widest mb-2 shadow-sm border border-amber-200/50">In
+                                Progress</span>
+                            <p class="text-sm text-slate-500 font-medium">Expected Completion: May 2026</p>
                         </div>
                     </div>
-                    <div
-                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
-                        <iconify-icon icon="logos:microsoft-azure" class="text-6xl"></iconify-icon>
-                        <div class="text-center sm:text-left">
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Microsoft Azure Fundamentals (AZ-900)</h3>
-                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected
-                                Completion: May 2026</p>
+                    <div class="glass-panel p-8 rounded-[32px] parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-8 relative overflow-hidden group"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+                        <div class="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center relative z-10 shrink-0"
+                            style="transform: translateZ(30px);">
+                            <iconify-icon icon="logos:microsoft-azure" class="text-5xl"></iconify-icon>
+                        </div>
+                        <div class="text-center sm:text-left relative z-10" style="transform: translateZ(20px);">
+                            <h3 class="text-xl font-black text-slate-900 mb-2 leading-tight">Microsoft Azure
+                                Fundamentals (AZ-900)</h3>
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-widest mb-2 shadow-sm border border-amber-200/50">In
+                                Progress</span>
+                            <p class="text-sm text-slate-500 font-medium">Expected Completion: May 2026</p>
                         </div>
                     </div>
                 </div>
@@ -1038,58 +1308,62 @@
                     </div>
                 </div>
             </section>
-            <footer id="terminal" class="py-24 px-6">
+            <footer id="contact" class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+                <div class="reveal-on-scroll mb-12 text-center">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Let's Connect</h2>
+                </div>
                 <div class="max-w-4xl mx-auto reveal-on-scroll" style="transition-delay: 200ms;">
-                    <div class="glass-panel rounded-lg overflow-hidden border">
-                        <div class="bg-blue-50 px-4 py-2 flex items-center justify-between border-b border-blue-100">
+
+                    <!-- Interactive Terminal -->
+                    <div
+                        class="glass-panel rounded-[32px] overflow-hidden border flex flex-col parallax-card h-full shadow-lg">
+                        <div class="bg-slate-900 px-5 py-3 flex items-center justify-between border-b border-white/10">
                             <div class="flex gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
                             </div>
-                            <span class="text-[10px] font-mono text-slate-500">bash — manoj@cloudshell:~</span>
+                            <span class="text-[10px] font-mono text-slate-400 tracking-widest">bash —
+                                manoj@cloudshell:~</span>
                         </div>
-                        <div
-                            class="p-8 font-mono text-xs md:text-sm space-y-4 text-slate-300 bg-slate-900 overflow-x-auto">
-                            <p class="text-cyan-400"># System initialized. Welcome, Manoj. :-)</p>
+                        <div id="terminal-body"
+                            class="p-6 font-mono text-xs md:text-sm text-slate-300 bg-slate-900/95 flex-1 overflow-y-auto cursor-text relative"
+                            style="min-height: 400px;">
+                            <p class="text-cyan-400 mb-2 font-bold"># System initialized. Welcome, Manoj. :-)</p>
+                            <p class="text-slate-400 mb-6">Type <span class="text-yellow-400">'help'</span> to see
+                                available commands.</p>
 
-                            <p><span class="text-green-400">manoj@cloudshell:~$</span> cat contact_info.md</p>
+                            <div id="terminal-history"></div>
 
-                            <div class="space-y-1 ml-4 border-l border-slate-700 pl-4">
-                                <p>Email: <a
-                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=manojsbala.03@gmail.com"
-                                        target="_blank"
-                                        class="text-blue-400 hover:underline">manojsbala.03@gmail.com</a></p>
-                                <p>LinkedIn: <a href="https://linkedin.com/in/manoj-panduraj-637876193"
-                                        class="text-blue-400 hover:underline">linkedin.com/in/manoj-panduraj</a></p>
-                                <p>GitHub: <a href="https://github.com/manojp-03"
-                                        class="text-blue-400 hover:underline">github.com/manojp-03</a></p>
-                            </div>
-
-                            <div class="flex gap-2 items-center pt-4">
-                                <span class="text-green-400">manoj@cloudshell:~$</span>
-                                <span class="w-2 h-4 bg-slate-400 animate-pulse"></span>
+                            <div class="flex items-center pt-2">
+                                <span class="text-green-400 mr-2 shrink-0 font-bold">manoj@cloudshell:~$</span>
+                                <input id="terminal-input" type="text"
+                                    class="bg-transparent border-none outline-none text-slate-200 w-full flex-1 font-bold caret-slate-200"
+                                    autocomplete="off" spellcheck="false">
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">© 2026 Manoj Panduraj. DevOps
-                            Engineer Portfolio.</p>
-                        <div class="flex gap-8">
-                            <a href="https://github.com/manojp-03"
-                                class="text-slate-500 hover:text-blue-600 transition-colors">
-                                <iconify-icon icon="mdi:github" class="text-2xl"></iconify-icon>
-                            </a>
-                            <a href="https://linkedin.com/in/manoj-panduraj-637876193"
-                                class="text-slate-500 hover:text-blue-600 transition-colors">
-                                <iconify-icon icon="mdi:linkedin" class="text-2xl"></iconify-icon>
-                            </a>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manojsbala.03@gmail.com"
-                                target="_blank" class="text-slate-500 hover:text-blue-600 transition-colors">
-                                <iconify-icon icon="mdi:email" class="text-2xl"></iconify-icon>
-                            </a>
-                        </div>
+                </div>
+
+                <div
+                    class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-blue-100/50 pt-8">
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">© 2026 Manoj Panduraj.
+                        DevOps
+                        Engineer Portfolio.</p>
+                    <div class="flex gap-8">
+                        <a href="https://github.com/manojp-03" target="_blank"
+                            class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <iconify-icon icon="mdi:github" class="text-2xl"></iconify-icon>
+                        </a>
+                        <a href="https://linkedin.com/in/manoj-panduraj-637876193" target="_blank"
+                            class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <iconify-icon icon="mdi:linkedin" class="text-2xl"></iconify-icon>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manojsbala.03@gmail.com" target="_blank"
+                            class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <iconify-icon icon="mdi:email" class="text-2xl"></iconify-icon>
+                        </a>
                     </div>
                 </div>
             </footer>
@@ -1229,9 +1503,62 @@
             }, 3000);
         }
 
+        // Interactive Terminal Logic
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalHistory = document.getElementById('terminal-history');
+        const terminalBody = document.getElementById('terminal-body');
+
+        if (terminalInput) {
+            terminalInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    const cmd = this.value.trim().toLowerCase();
+                    this.value = '';
+
+                    if (cmd === '') return;
+
+                    // Add command to history
+                    const cmdLine = document.createElement('div');
+                    cmdLine.className = 'mb-1';
+                    cmdLine.innerHTML = `<span class="text-green-400 font-bold">manoj@cloudshell:~$</span> <span class="text-slate-200 font-bold">${cmd}</span>`;
+                    terminalHistory.appendChild(cmdLine);
+
+                    // Process command
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'mb-4 ml-4 text-slate-400 whitespace-pre-wrap leading-relaxed';
+
+                    if (cmd === 'help') {
+                        outputLine.innerHTML = `Available commands:
+  <span class="text-yellow-400 font-bold">whoami</span>   - Display user info
+  <span class="text-yellow-400 font-bold">skills</span>   - List technical skills
+  <span class="text-yellow-400 font-bold">contact</span>  - Show contact details
+  <span class="text-yellow-400 font-bold">clear</span>    - Clear terminal`;
+                    } else if (cmd === 'whoami') {
+                        outputLine.textContent = "Manoj Panduraj | DevOps & SRE Engineer | Cloud Architect";
+                    } else if (cmd === 'skills') {
+                        outputLine.innerHTML = `<span class="text-blue-400">Cloud:</span> GCP, AWS, Azure\n<span class="text-blue-400">IaC:</span> Terraform, Helm\n<span class="text-blue-400">CI/CD:</span> GitHub Actions, Jenkins\n<span class="text-blue-400">Containers:</span> Kubernetes, Docker\n<span class="text-blue-400">Observability:</span> Prometheus, Grafana, Splunk`;
+                    } else if (cmd === 'contact') {
+                        outputLine.innerHTML = `Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manojsbala.03@gmail.com" target="_blank" class="text-blue-400 hover:underline">manojsbala.03@gmail.com</a>\nGitHub: <a href="https://github.com/manojp-03" target="_blank" class="text-blue-400 hover:underline">github.com/manojp-03</a>`;
+                    } else if (cmd === 'clear') {
+                        terminalHistory.innerHTML = '';
+                        outputLine.innerHTML = '';
+                    } else {
+                        outputLine.innerHTML = `bash: ${cmd}: command not found`;
+                    }
+
+                    if (outputLine.innerHTML !== '') {
+                        terminalHistory.appendChild(outputLine);
+                    }
+
+                    // Auto scroll to bottom
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }
+            });
+
+            // Focus input when clicking anywhere in terminal
+            terminalBody.addEventListener('click', () => terminalInput.focus());
+        }
+
     </script>
-
-
 </body>
 
 </html>
