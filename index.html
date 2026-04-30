@@ -92,7 +92,7 @@
         }
 
         .reveal-on-scroll {
-            opacity: 0;
+            opacity: 1; /* Changed from 0 to 1 for safety */
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
         }
@@ -616,95 +616,103 @@
     </div>
 
     <script>
-        // Three.js 3D Background Implementation
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        // Reveal Logic (Moved to top for reliability)
+        try {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('three-canvas').appendChild(renderer.domElement);
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
-        // Geometry: Grid and Floating Particles
-        const geometry = new THREE.IcosahedronGeometry(2, 0);
-        const material = new THREE.MeshBasicMaterial({
-            color: 0x2563eb,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.08
-        });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
-
-        // Add starfield particles
-        const starGeometry = new THREE.BufferGeometry();
-        const starMaterial = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.015, transparent: true, opacity: 0.3 });
-        const starVertices = [];
-        for (let i = 0; i < 10000; i++) {
-            const x = (Math.random() - 0.5) * 20;
-            const y = (Math.random() - 0.5) * 20;
-            const z = (Math.random() - 0.5) * 20;
-            starVertices.push(x, y, z);
-        }
-        starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-        const stars = new THREE.Points(starGeometry, starMaterial);
-        scene.add(stars);
-
-        camera.position.z = 5;
-
-        // Mouse Interaction for parallax
-        let mouseX = 0, mouseY = 0;
-        window.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX - window.innerWidth / 2) / 100;
-            mouseY = (e.clientY - window.innerHeight / 2) / 100;
-        });
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            sphere.rotation.x += 0.002;
-            sphere.rotation.y += 0.002;
-
-            // Smooth camera motion based on mouse
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-
-            stars.rotation.y += 0.0005;
-
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                    observer.unobserve(entry.target);
-                }
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                observer.observe(el);
             });
-        }, observerOptions);
+        } catch (e) {
+            console.error("Reveal observer failed:", e);
+            // Fallback: Show all elements if observer fails
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+        }
 
-        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
-            observer.observe(el);
-        });
+        // Three.js 3D Background Implementation
+        try {
+            if (typeof THREE !== 'undefined') {
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                const canvasContainer = document.getElementById('three-canvas');
+                if (canvasContainer) {
+                    canvasContainer.appendChild(renderer.domElement);
+
+                    // Geometry: Grid and Floating Particles
+                    const geometry = new THREE.IcosahedronGeometry(2, 0);
+                    const material = new THREE.MeshBasicMaterial({
+                        color: 0x2563eb,
+                        wireframe: true,
+                        transparent: true,
+                        opacity: 0.08
+                    });
+                    const sphere = new THREE.Mesh(geometry, material);
+                    scene.add(sphere);
+
+                    // Add starfield particles
+                    const starGeometry = new THREE.BufferGeometry();
+                    const starMaterial = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.015, transparent: true, opacity: 0.3 });
+                    const starVertices = [];
+                    for (let i = 0; i < 10000; i++) {
+                        const x = (Math.random() - 0.5) * 20;
+                        const y = (Math.random() - 0.5) * 20;
+                        const z = (Math.random() - 0.5) * 20;
+                        starVertices.push(x, y, z);
+                    }
+                    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+                    const stars = new THREE.Points(starGeometry, starMaterial);
+                    scene.add(stars);
+
+                    camera.position.z = 5;
+
+                    // Mouse Interaction for parallax
+                    let mouseX = 0, mouseY = 0;
+                    window.addEventListener('mousemove', (e) => {
+                        mouseX = (e.clientX - window.innerWidth / 2) / 100;
+                        mouseY = (e.clientY - window.innerHeight / 2) / 100;
+                    });
+
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        sphere.rotation.x += 0.002;
+                        sphere.rotation.y += 0.002;
+                        camera.position.x += (mouseX - camera.position.x) * 0.05;
+                        camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                        camera.lookAt(scene.position);
+                        stars.rotation.y += 0.0005;
+                        renderer.render(scene, camera);
+                    }
+                    animate();
+
+                    window.addEventListener('resize', () => {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                    });
+                }
+            }
+        } catch (e) {
+            console.error("Three.js failed:", e);
+        }
 
         // Card Parallax Logic
-        const cards = document.querySelectorAll('.parallax-card');
-        cards.forEach(card => {
+        document.querySelectorAll('.parallax-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -727,19 +735,14 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = Math.round((winScroll / height) * 100);
-            
-            // Generate progress bar [=====>     ]
             const barsCount = 10;
             const filledCount = Math.floor(scrolled / (100 / barsCount));
             const emptyCount = barsCount - filledCount;
             const bar = '='.repeat(filledCount) + (filledCount < barsCount ? '>' : '') + ' '.repeat(Math.max(0, emptyCount - 1));
-            
-            if (scrollProgressCli) {
-                scrollProgressCli.textContent = `PORTFOLIO_DEPLOY: [${bar}] ${scrolled}%`;
-            }
+            if (scrollProgressCli) scrollProgressCli.textContent = `PORTFOLIO_DEPLOY: [${bar}] ${scrolled}%`;
         });
 
-        // Uptime Counter Logic (Simulated)
+        // Uptime Counter Logic
         const uptimeVal = document.getElementById('uptime-val');
         if (uptimeVal) {
             setInterval(() => {
@@ -749,69 +752,67 @@
             }, 3000);
         }
 
-        // Feedback Bot Widget
-        const feedbackBot = document.createElement('div');
-        feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 hidden md:flex';
-        feedbackBot.innerHTML = `
-            <div class="glass-panel p-4 rounded-2xl border shadow-2xl flex flex-col gap-3 max-w-[200px] relative animate-float">
-                <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45"></div>
-                <p class="text-[11px] font-black text-slate-800 leading-tight">Hi! I'm Lexa. Enjoying the site?</p>
-                <div class="flex gap-2">
-                    <button id="like-btn" class="flex-1 p-2 rounded-lg bg-slate-50 hover:bg-green-50 text-slate-400 hover:text-green-600 transition-all border border-slate-100 flex flex-col items-center gap-1">
-                        <iconify-icon icon="lucide:thumbs-up" class="text-lg"></iconify-icon>
-                        <span id="like-count" class="text-[10px] font-black">1</span>
-                    </button>
-                    <button id="dislike-btn" class="p-2 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 transition-all border border-slate-100 flex items-center justify-center">
-                        <iconify-icon icon="lucide:thumbs-down" class="text-lg"></iconify-icon>
-                    </button>
+        // Feedback Bot Logic
+        (function() {
+            const feedbackBot = document.createElement('div');
+            feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 hidden md:flex';
+            feedbackBot.innerHTML = `
+                <div class="glass-panel p-4 rounded-2xl border shadow-2xl flex flex-col gap-3 max-w-[200px] relative animate-float">
+                    <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45"></div>
+                    <p class="text-[11px] font-black text-slate-800 leading-tight">Hi! I'm Lexa. Enjoying the site?</p>
+                    <div class="flex gap-2">
+                        <button id="like-btn" class="flex-1 p-2 rounded-lg bg-slate-50 hover:bg-green-50 text-slate-400 hover:text-green-600 transition-all border border-slate-100 flex flex-col items-center gap-1">
+                            <iconify-icon icon="lucide:thumbs-up" class="text-lg"></iconify-icon>
+                            <span id="like-count" class="text-[10px] font-black">1</span>
+                        </button>
+                        <button id="dislike-btn" class="p-2 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 transition-all border border-slate-100 flex items-center justify-center">
+                            <iconify-icon icon="lucide:thumbs-down" class="text-lg"></iconify-icon>
+                        </button>
+                    </div>
+                    <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold"></p>
                 </div>
-                <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold"></p>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-slate-900 shadow-lg flex items-center justify-center text-white border-4 border-white animate-bounce-subtle">
-                <iconify-icon icon="fa6-brands:linux" class="text-2xl"></iconify-icon>
-            </div>
-        `;
+                <div class="w-12 h-12 rounded-full bg-slate-900 shadow-lg flex items-center justify-center text-white border-4 border-white animate-bounce-subtle">
+                    <iconify-icon icon="fa6-brands:linux" class="text-2xl"></iconify-icon>
+                </div>
+            `;
+            document.body.appendChild(feedbackBot);
 
-        document.body.appendChild(feedbackBot);
+            let hasVoted = localStorage.getItem('manoj_portfolio_voted');
+            const likeBtn = document.getElementById('like-btn');
+            const dislikeBtn = document.getElementById('dislike-btn');
+            const likeCountLabel = document.getElementById('like-count');
+            const botStatus = document.getElementById('bot-status');
+            let baseLikes = 1;
 
-        // Tracking Logic
-        let hasVoted = localStorage.getItem('manoj_portfolio_voted');
-        const likeBtn = document.getElementById('like-btn');
-        const dislikeBtn = document.getElementById('dislike-btn');
-        const likeCountLabel = document.getElementById('like-count');
-        const botStatus = document.getElementById('bot-status');
-        
-        let baseLikes = 1;
-        if (hasVoted === 'like') {
-            likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
-            likeCountLabel.textContent = baseLikes + 1;
-            botStatus.textContent = "Thanks! Appreciate it";
-            botStatus.classList.remove('hidden');
-        } else if (hasVoted === 'dislike') {
-            dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
-            botStatus.textContent = "Ohh";
-            botStatus.classList.remove('hidden');
-        }
+            const updateUI = (vote) => {
+                if (vote === 'like') {
+                    likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
+                    dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
+                    likeCountLabel.textContent = baseLikes + 1;
+                    botStatus.textContent = "Thanks! Appreciate it";
+                } else if (vote === 'dislike') {
+                    dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
+                    likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
+                    likeCountLabel.textContent = baseLikes;
+                    botStatus.textContent = "Ohh";
+                }
+                if (vote) botStatus.classList.remove('hidden');
+            };
 
-        likeBtn.addEventListener('click', () => {
-            if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
-            localStorage.setItem('manoj_portfolio_voted', 'like');
-            likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
-            dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
-            likeCountLabel.textContent = baseLikes + 1;
-            botStatus.textContent = "Thanks! Appreciate it";
-            botStatus.classList.remove('hidden');
-        });
+            updateUI(hasVoted);
 
-        dislikeBtn.addEventListener('click', () => {
-            if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
-            localStorage.setItem('manoj_portfolio_voted', 'dislike');
-            dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
-            likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
-            likeCountLabel.textContent = baseLikes;
-            botStatus.textContent = "Ohh";
-            botStatus.classList.remove('hidden');
-        });
+            likeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
+                localStorage.setItem('manoj_portfolio_voted', 'like');
+                updateUI('like');
+            });
+
+            dislikeBtn.addEventListener('click', () => {
+                if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
+                localStorage.setItem('manoj_portfolio_voted', 'dislike');
+                updateUI('dislike');
+            });
+        })();
     </script>
 </body>
 
