@@ -7,7 +7,7 @@
     <title>Manoj Panduraj | DevOps & SRE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
     <style>
         @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900&f[]=satoshi@400,500,700&display=swap');
 
@@ -92,7 +92,7 @@
         }
 
         .reveal-on-scroll {
-            opacity: 1; /* Changed from 0 to 1 for safety */
+            opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
         }
@@ -111,18 +111,11 @@
         .animate-data-pulse {
             animation: data-pulse 3s linear infinite;
         }
-
-        @keyframes bounce-subtle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle {
-            animation: bounce-subtle 2s ease-in-out infinite;
-        }
     </style>
+
 </head>
 
-<body class="custom-scrollbar">
+<body>
     <!-- System Health Top Bar -->
     <div id="system-bar" class="fixed top-0 left-0 w-full z-[100] bg-slate-900 px-4 py-1.5 hidden md:flex justify-between items-center font-mono text-[10px] tracking-widest text-slate-400 border-b border-white/5">
         <div class="flex items-center gap-4">
@@ -136,45 +129,54 @@
             <span>REGION: <span class="text-slate-300">EU-WEST-2</span></span>
         </div>
         <div class="flex items-center gap-4">
-            <span id="scroll-progress-cli" class="text-blue-400">PORTFOLIO_DEPLOY: [==========] 100%</span>
+            <span id="scroll-progress-cli" class="text-blue-400">PORTFOLIO_DEPLOY: [          ] 0%</span>
             <span class="opacity-20">|</span>
-            <span>Uptime: <span id="uptime-val">99.98%</span></span>
+            <span>Uptime: <span id="uptime-val">99.99%</span></span>
         </div>
     </div>
 
     <div class="min-h-screen relative overflow-hidden">
+
         <!-- 3D Canvas Background -->
         <div id="three-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></div>
 
         <!-- UI Layer -->
         <div class="relative z-10">
+
             <!-- Navigation Header -->
-            <nav class="fixed top-0 md:top-8 w-full px-8 py-4 flex justify-between items-center z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+            <nav
+                class="fixed top-0 md:top-8 w-full px-8 py-4 flex justify-between items-center z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
                 <div class="flex items-center gap-2">
                     <a href="#home" class="flex items-center gap-2">
-                        <span class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-blue-600 drop-shadow-sm" style="font-family: 'Satoshi', sans-serif;">Manoj Panduraj</span>
+                        <span
+                            class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-blue-600 drop-shadow-sm"
+                            style="font-family: 'Satoshi', sans-serif;">Manoj Panduraj</span>
                     </a>
                 </div>
-                <div class="hidden lg:flex items-center gap-6 xl:gap-8 font-semibold text-slate-600 text-sm tracking-wide">
-                    <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-                    <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <div
+                    class="hidden lg:flex items-center gap-6 xl:gap-8 font-semibold text-slate-600 text-sm tracking-wide">
+                    <a href="#home" class="hover:text-blue-600 transition-colors">About</a>
+                    <a href="#resume" class="hover:text-blue-600 transition-colors">Experience</a>
                     <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-                    <a href="#competencies" class="hover:text-blue-600 transition-colors">Competencies</a>
-                    <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-                    <a href="#certifications" class="hover:text-blue-600 transition-colors">Certifications</a>
-                    <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+                    <a href="#stack" class="hover:text-blue-600 transition-colors">Competencies</a>
+                    <a href="#resume" class="hover:text-blue-600 transition-colors">Skills</a>
+                    <a href="#resume" class="hover:text-blue-600 transition-colors">Certifications</a>
+                    <a href="#resume" class="hover:text-blue-600 transition-colors">Education</a>
                 </div>
             </nav>
 
-            <!-- Hero Section -->
-            <section id="home" class="min-h-screen flex items-center justify-center px-6 perspective-container pt-32 pb-20">
-                <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center reveal-on-scroll">
+            <section id="home"
+                class="min-h-screen flex items-start justify-center px-6 perspective-container pt-52 pb-20">
+                <div
+                    class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start reveal-on-scroll">
                     <!-- Left side -->
                     <div class="space-y-6 lg:col-span-7 relative z-10">
-                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-blue-100 text-blue-600 text-sm font-bold tracking-wide shadow-sm">
+                        <div
+                            class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-blue-100 text-blue-600 text-sm font-bold tracking-wide shadow-sm">
                             Open to Relocation • Based in Kingston, United Kingdom
                         </div>
-                        <h1 class="text-5xl md:text-6xl font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-blue-600 to-blue-400 drop-shadow-md pb-2" style="font-family: 'Satoshi', sans-serif;">
+                        <h1 class="text-5xl md:text-6xl font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-blue-600 to-blue-400 drop-shadow-md pb-2"
+                            style="font-family: 'Satoshi', sans-serif;">
                             Manoj Panduraj
                         </h1>
                         <h2 class="text-xl md:text-2xl font-bold text-slate-800 tracking-tight">
@@ -188,29 +190,50 @@
                             automation.
                         </p>
                         <div class="flex flex-wrap gap-4 pt-4">
-                            <a href="./resume.pdf" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-bold shadow-md hover:bg-blue-700 transition-colors">
+                            <a href="resume.pdf" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full text-sm font-bold shadow-md hover:bg-blue-700 transition-colors">
                                 <iconify-icon icon="lucide:file-text" class="text-lg"></iconify-icon> Resume
                             </a>
-                            <a href="https://linkedin.com/in/manoj-panduraj-637876193" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                            <a href="https://linkedin.com/in/manoj-panduraj-637876193" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                                 <iconify-icon icon="lucide:link" class="text-lg text-slate-400"></iconify-icon> LinkedIn
                             </a>
-                            <a href="https://github.com/manoj-panduraj" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                            <a href="https://github.com/manoj-panduraj" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                                 <iconify-icon icon="mdi:github" class="text-lg text-slate-900"></iconify-icon> GitHub
                             </a>
-                            <a href="mailto:manojsbala.03@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                            <a href="mailto:manojsbala.03@gmail.com"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                                 <iconify-icon icon="lucide:mail" class="text-lg text-slate-400"></iconify-icon> Email
+                            </a>
+                            <a href="tel:+447887961488"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                                <iconify-icon icon="lucide:phone" class="text-lg text-slate-600"></iconify-icon> +44
+                                78879 61488
+                            </a>
+                            <a href="tel:+919986439395"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                                <iconify-icon icon="lucide:phone" class="text-lg text-slate-600"></iconify-icon> +91
+                                99864 39395
+                            </a>
+                            <a href="#"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-full text-sm font-bold shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                                <iconify-icon icon="logos:grafana" class="text-lg"></iconify-icon> Grafana
                             </a>
                         </div>
                     </div>
 
                     <!-- Right side -->
-                    <div class="lg:col-span-5 relative mt-24 lg:mt-0">
-                        <div class="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-xl border border-white relative parallax-card">
+                    <div class="lg:col-span-5 relative mt-32 lg:mt-24">
+                        <div
+                            class="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-xl border border-white relative parallax-card">
                             <!-- Profile Image overlapping top -->
                             <div class="absolute -top-20 left-1/2 -translate-x-1/2">
-                                <div class="w-40 h-40 rounded-full overflow-hidden border-8 border-white shadow-lg bg-slate-100 relative">
-                                    <img src="./profile.jpg" alt="Manoj Panduraj" class="w-full h-full object-cover">
-                                    <div class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] pointer-events-none">
+                                <div
+                                    class="w-40 h-40 rounded-full overflow-hidden border-8 border-white shadow-lg bg-slate-100 relative">
+                                    <img src="profile.jpg" alt="Manoj Panduraj" class="w-full h-full object-cover">
+                                    <div
+                                        class="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] pointer-events-none">
                                     </div>
                                 </div>
                             </div>
@@ -224,19 +247,24 @@
                                 </p>
 
                                 <div class="grid grid-cols-2 gap-4 pt-4">
-                                    <div class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
+                                    <div
+                                        class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
                                         <div class="text-4xl font-black text-blue-600 mb-2">3</div>
                                         <div class="text-slate-700 font-medium text-sm">Years Experience</div>
                                     </div>
-                                    <div class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
+                                    <div
+                                        class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
                                         <div class="text-4xl font-black text-blue-600 mb-2">30%</div>
                                         <div class="text-slate-700 font-medium text-sm">Deployment Efficiency Gain</div>
                                     </div>
-                                    <div class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
+                                    <div
+                                        class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
                                         <div class="text-4xl font-black text-blue-600 mb-2">25%</div>
-                                        <div class="text-slate-700 font-medium text-sm">Incident Response Reduction</div>
+                                        <div class="text-slate-700 font-medium text-sm">Incident Response Reduction
+                                        </div>
                                     </div>
-                                    <div class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
+                                    <div
+                                        class="border border-slate-100 rounded-2xl p-5 shadow-sm bg-white hover:shadow-md transition-shadow">
                                         <div class="text-4xl font-black text-blue-600 mb-2">20%</div>
                                         <div class="text-slate-700 font-medium text-sm">Manual Effort Reduced</div>
                                     </div>
@@ -246,25 +274,28 @@
                     </div>
                 </div>
             </section>
-
             <!-- KPIs -->
             <section class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-on-scroll">
-                    <div class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
+                    <div
+                        class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
                         <h3 class="text-3xl font-black text-blue-600 mb-2">GKE / EKS</h3>
                         <p class="text-sm font-semibold text-slate-600">Production Kubernetes Management</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
+                    <div
+                        class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
                         <h3 class="text-3xl font-black text-blue-600 mb-2">AWS → GCP</h3>
                         <p class="text-sm font-semibold text-slate-600">Enterprise Migration Support</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
+                    <div
+                        class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
                         <h3 class="text-3xl font-black text-blue-600 mb-2">Terraform</h3>
                         <p class="text-sm font-semibold text-slate-600">Secure Infrastructure as Code</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
+                    <div
+                        class="glass-panel p-8 rounded-2xl text-center parallax-card hover:border-blue-400 transition-colors">
                         <h3 class="text-3xl font-black text-blue-600 mb-2">Splunk + NR</h3>
-                        <p class="text-sm font-semibold text-slate-600">Observability & Incident Response</p>
+                        <p class="text-sm font-semibold text-slate-600">Observability &amp; Incident Response</p>
                     </div>
                 </div>
             </section>
@@ -272,9 +303,12 @@
             <!-- About -->
             <section id="about" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <div class="reveal-on-scroll mb-12">
-                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Professional Summary</h2>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Professional
+                        Summary</h2>
+
                 </div>
-                <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                <div
+                    class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                     <p class="text-slate-700 leading-relaxed text-lg">
                         GCP-focused DevOps/SRE engineer with 3 years of experience supporting production cloud platforms
                         and Kubernetes workloads.
@@ -290,46 +324,105 @@
 
             <!-- Experience -->
             <section id="experience" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Work History</h2>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Work
+                    History</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div
+                        class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                         <h3 class="text-2xl font-black text-slate-900 mb-2">DevOps Engineer</h3>
-                        <h4 class="text-blue-600 font-bold mb-4">Applied Cloud Computing (Client: Zee Entertainment Enterprises Ltd)</h4>
-                        <div class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 bg-slate-50 inline-block p-2 rounded-lg">
+                        <h4 class="text-blue-600 font-bold mb-4">Applied Cloud Computing (Client: Zee Entertainment
+                            Enterprises Ltd)</h4>
+                        <div
+                            class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 bg-slate-50 inline-block p-2 rounded-lg">
                             <span>Dec 2023 - Jan 2025</span>
                             <span>•</span>
                             <span>Bengaluru, India</span>
                         </div>
                         <ul class="space-y-3 text-slate-600 text-sm">
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Supported AWS to GCP migration for enterprise workloads, ensuring smooth cutover and stable post-migration production operations.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Managed production Kubernetes clusters (GKE/EKS) supporting high-availability cloud infrastructure workloads, including health checks, troubleshooting and upgrade support to ensure reliability.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Engineered and streamlined CI/CD pipelines (GitHub Actions/Jenkins), improving deployment efficiency by 30%.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Contributed to Terraform-based IaC modules for secure, repeatable provisioning across GCP/AWS environments.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Strengthened observability using Splunk and New Relic, tuning alerts/dashboards to reduce incident response time by 25% and improve MTTR.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Supported AWS to GCP migration
+                                for enterprise workloads, ensuring smooth cutover and stable post-migration production
+                                operations.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Managed production Kubernetes
+                                clusters (GKE/EKS) supporting high-availability cloud infrastructure workloads,
+                                including health checks, troubleshooting and upgrade support to ensure reliability.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Engineered and streamlined CI/CD
+                                pipelines (GitHub Actions/Jenkins), improving deployment efficiency by 30%.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Contributed to Terraform-based
+                                IaC modules for secure, repeatable provisioning across GCP/AWS environments.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Strengthened observability using
+                                Splunk and New Relic, tuning alerts/dashboards to reduce incident response time by 25%
+                                and improve MTTR.</li>
                         </ul>
                     </div>
 
-                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 100ms;">
                         <h3 class="text-2xl font-black text-slate-900 mb-2">Site Reliability Engineer</h3>
-                        <h4 class="text-blue-600 font-bold mb-4">Randstad India Private Limited (Client: Zee Entertainment Enterprises Ltd)</h4>
-                        <div class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 bg-slate-50 inline-block p-2 rounded-lg">
+                        <h4 class="text-blue-600 font-bold mb-4">Randstad India Private Limited (Client: Zee
+                            Entertainment Enterprises Ltd)</h4>
+                        <div
+                            class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 bg-slate-50 inline-block p-2 rounded-lg">
                             <span>May 2023 - Dec 2023</span>
                             <span>•</span>
                             <span>Bengaluru, India</span>
                         </div>
                         <ul class="space-y-3 text-slate-600 text-sm">
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Supported production GCP cloud services and Kubernetes workloads, improving platform reliability and release velocity.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Reduced operational toil by automating repetitive tasks, achieving 20% reduction in manual effort.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Automated deployments and release workflows using CI/CD pipelines and Git-based practices.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Improved monitoring and alerting using Splunk/New Relic, enabling faster incident detection and troubleshooting.</li>
-                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Investigated production incidents, performed RCA, optimized workloads for performance/efficiency, and participated in on-call support.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Supported production GCP cloud
+                                services and Kubernetes workloads, improving platform reliability and release velocity.
+                            </li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Reduced operational toil by
+                                automating repetitive tasks, achieving 20% reduction in manual effort.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Automated deployments and
+                                release workflows using CI/CD pipelines and Git-based practices.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Improved monitoring and alerting
+                                using Splunk/New Relic, enabling faster incident detection and troubleshooting.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Investigated production
+                                incidents, performed RCA, optimized workloads for performance/efficiency, and
+                                participated in on-call support.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 200ms;">
+                        <h3 class="text-2xl font-black text-slate-900 mb-2">Subject Matter Expert (Freelance)</h3>
+                        <h4 class="text-blue-600 font-bold mb-4">Chegg India Private Limited</h4>
+                        <div
+                            class="flex gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 bg-slate-50 inline-block p-2 rounded-lg">
+                            <span>Apr 2022 - May 2023</span>
+                            <span>•</span>
+                            <span>Remote</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 text-sm">
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Provided computer science
+                                subject matter support to global learners, delivering clear and accurate solutions
+                                across core CS topics.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Maintained strong attention to
+                                detail and academic standards to support Chegg’s global education mission.</li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Ensured high-quality, timely
+                                delivery of solutions while managing workload independently in a freelance environment.
+                            </li>
+                            <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                    class="text-blue-400 mt-0.5 text-lg"></iconify-icon>Maintained a flexible work
+                                schedule as a freelance contractor, accommodating student demands and deadlines.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Projects -->
-            <section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+                    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <div class="reveal-on-scroll mb-12">
                     <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Projects</h2>
                 </div>
@@ -340,36 +433,53 @@
                         <iconify-icon icon="lucide:activity"></iconify-icon> Live Production Systems
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400"></div>
+                        <!-- Live Project 1: Grafana/Prometheus -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
                             <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">Grafana & Prometheus Monitoring Stack</h3>
+                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                                    Grafana & Prometheus Monitoring Stack</h3>
                                 <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
                             </div>
                             <p class="text-slate-600 text-sm mb-6">Deployed and managed a robust observability ecosystem for real-time tracking of infrastructure health and application performance metrics.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Custom Prometheus exporters for granular metric collection.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Advanced Grafana dashboards with dynamic alerting and heatmaps.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>AlertManager integration for automated Slack and PagerDuty notifications.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Prometheus exporters for granular metric collection.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Advanced Grafana dashboards with dynamic alerting and heatmaps.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>AlertManager integration for automated Slack and PagerDuty notifications.</li>
                             </ul>
                             <div class="flex gap-4">
                                 <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Stack: Prometheus, Grafana, AlertManager</span>
                             </div>
                         </div>
 
-                        <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400"></div>
+                        <!-- Live Project 2: Portfolio -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
                             <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">3D Immersive DevOps Portfolio</h3>
+                                <h3 class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                                    3D Immersive DevOps Portfolio</h3>
                                 <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
                             </div>
                             <p class="text-slate-600 text-sm mb-6">A high-performance Single-Page Application (SPA) designed to demonstrate technical expertise through interactive 3D visualizations.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Custom Three.js 3D background with dynamic mouse-tracking particles.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Glassmorphic UI design built with Tailwind CSS and GSAP animations.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Interactive Cloud Shell terminal UI for DevOps-themed engagement.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Three.js 3D background with dynamic mouse-tracking particles.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Glassmorphic UI design built with Tailwind CSS and GSAP animations.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Interactive Cloud Shell terminal UI for DevOps-themed engagement.</li>
                             </ul>
-                            <a href="#home" class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
+                            <a href="#"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
                                 <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon> View Site
                             </a>
                         </div>
@@ -382,28 +492,100 @@
                         <iconify-icon icon="lucide:git-branch"></iconify-icon> Engineering Repository & Lab Projects
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400"></div>
-                            <h3 class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">Multi-Environment Kubernetes Deployment Platform</h3>
-                            <p class="text-slate-600 text-sm mb-6">Designed a reusable deployment framework for development, staging, and production Kubernetes environments using Helm, Terraform, and GitHub Actions.</p>
+                        <!-- Project 1 -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
+                            <h3
+                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
+                                Multi-Environment Kubernetes Deployment Platform</h3>
+                            <p class="text-slate-600 text-sm mb-6">Designed a reusable deployment framework for development,
+                                staging, and production Kubernetes environments using Helm, Terraform, and GitHub Actions.
+                            </p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Standardized releases across environments with repeatable infrastructure provisioning.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Integrated CI/CD automation with secure secrets handling and rollout validation.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Standardized releases across
+                                    environments with repeatable infrastructure provisioning.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Integrated CI/CD automation with secure
+                                    secrets handling and rollout validation.</li>
                             </ul>
-                            <a href="https://github.com/manoj-panduraj" target="_blank" class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                            <a href="https://github.com/manoj-panduraj" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
                                 <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
                             </a>
                         </div>
-
-                        <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400"></div>
-                            <h3 class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">Cloud Migration Readiness & Cutover Automation</h3>
-                            <p class="text-slate-600 text-sm mb-6">Built a migration support workflow for AWS to GCP transitions covering provisioning, validation checklists, and post-cutover monitoring readiness.</p>
+                        <!-- Project 2 -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
+                            <h3
+                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
+                                Cloud Migration Readiness &amp; Cutover Automation</h3>
+                            <p class="text-slate-600 text-sm mb-6">Built a migration support workflow for AWS to GCP
+                                transitions covering provisioning, validation checklists, and post-cutover monitoring
+                                readiness.</p>
                             <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Created Terraform templates for faster and safer cloud resource setup.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right" class="text-blue-400 mt-0.5"></iconify-icon>Defined rollback-aware deployment steps and smoke-test verification.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Created Terraform templates for faster
+                                    and safer cloud resource setup.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Defined rollback-aware deployment steps
+                                    and smoke-test verification.</li>
                             </ul>
-                            <a href="https://github.com/manoj-panduraj" target="_blank" class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                            <a href="https://github.com/manoj-panduraj" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
+                            </a>
+                        </div>
+                        <!-- Project 3 -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
+                            <h3
+                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
+                                Observability &amp; Incident Response Dashboard Suite</h3>
+                            <p class="text-slate-600 text-sm mb-6">Implemented operational dashboards and alert tuning
+                                workflows with Splunk, New Relic, and Cloud monitoring tools for production systems.</p>
+                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Centralized logs, metrics, and alert
+                                    signals for faster diagnosis.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Reduced noise through alert tuning and
+                                    prioritization logic.</li>
+                            </ul>
+                            <a href="https://github.com/manoj-panduraj" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
+                            </a>
+                        </div>
+                        <!-- Project 4 -->
+                        <div
+                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
+                            </div>
+                            <h3
+                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
+                                Secure Infrastructure as Code Modules</h3>
+                            <p class="text-slate-600 text-sm mb-6">Developed modular Terraform components for cloud
+                                networking, IAM, and workload deployment with security-by-design principles.</p>
+                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Enabled repeatable provisioning across
+                                    AWS and GCP environments.</li>
+                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
+                                        class="text-blue-400 mt-0.5"></iconify-icon>Implemented automated policy checks (Sentinel/OPA) for IaC compliance.</li>
+                            </ul>
+                            <a href="https://github.com/manoj-panduraj" target="_blank"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
                                 <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
                             </a>
                         </div>
@@ -411,67 +593,258 @@
                 </div>
             </section>
 
+            <!-- DevOps Philosophy -->
+
+            <!-- Infrastructure Architecture -->
+
+
+
             <!-- Competencies -->
             <section id="competencies" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Core Competencies</h2>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Core
+                    Competencies</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div
+                        class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Platform Engineering</h3>
                         <p class="text-sm text-slate-600">Designing scalable and secure cloud-native infrastructure.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
-                        <h3 class="text-lg font-black text-slate-900 mb-2">SRE & Reliability</h3>
-                        <p class="text-sm text-slate-600">Production support, incident response, RCA, and MTTR reduction.</p>
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 50ms;">
+                        <h3 class="text-lg font-black text-slate-900 mb-2">SRE &amp; Reliability</h3>
+                        <p class="text-sm text-slate-600">Production support, incident response, RCA, and MTTR
+                            reduction.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 100ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Infrastructure Automation</h3>
-                        <p class="text-sm text-slate-600">Building reusable and repeatable infrastructure provisioning.</p>
+                        <p class="text-sm text-slate-600">Building reusable and repeatable infrastructure provisioning.
+                        </p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 150ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">CI/CD Delivery</h3>
                         <p class="text-sm text-slate-600">Automating build, test, and deployment workflows.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 200ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Observability</h3>
                         <p class="text-sm text-slate-600">Monitoring, logging, alerting, and incident analysis.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 250ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Cloud Operations</h3>
                         <p class="text-sm text-slate-600">Managing and optimizing multi-cloud environments.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 300ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Security</h3>
                         <p class="text-sm text-slate-600">Implementing IAM, access control, and platform governance.</p>
                     </div>
-                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div class="glass-panel p-8 rounded-2xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll"
+                        style="transition-delay: 350ms;">
                         <h3 class="text-lg font-black text-slate-900 mb-2">Ways of Working</h3>
-                        <p class="text-sm text-slate-600">Agile practices, documentation, and cross-team collaboration.</p>
+                        <p class="text-sm text-slate-600">Agile practices, documentation, and cross-team collaboration.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- Skills -->
             <section id="skills" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Technical Skills</h2>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">
+                    Technical Skills</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Cloud -->
-                    <div class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                         <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Cloud</div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Google Cloud Platform</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Amazon Web Service</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Microsoft Azure</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Google
+                                Cloud Platform</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Amazon
+                                Web Service</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Microsoft
+                                Azure</span>
                         </div>
                     </div>
                     <!-- Kubernetes -->
-                    <div class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
-                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Kubernetes & Containers</div>
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Kubernetes &amp; Containers
+                        </div>
                         <div class="flex flex-wrap gap-2">
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Kubernetes</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">GKE</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">EKS</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Docker</span>
-                            <span class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Helm</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Kubernetes</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">GKE</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">EKS</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Docker</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Helm</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Ingress</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">RBAC</span>
+                        </div>
+                    </div>
+                    <!-- Infrastructure as Code -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Infrastructure as Code</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Terraform</span>
+                        </div>
+                    </div>
+                    <!-- CI/CD & GitOps -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">CI/CD &amp; GitOps</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">GitHub
+                                Actions</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Jenkins</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Argo
+                                CD</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Git</span>
+                        </div>
+                    </div>
+                    <!-- Secrets Management -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Secrets Management</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">GCP
+                                Secret Manager</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">AWS
+                                Secrets Manager</span>
+                        </div>
+                    </div>
+                    <!-- Observability -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Observability</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Cloud
+                                Operations</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">AWS
+                                CloudWatch</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">New
+                                Relic</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Splunk</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Coralogix</span>
+                        </div>
+                    </div>
+                    <!-- Web / CDN -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Web / CDN</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Akamai</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">AWS
+                                CloudFront</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Google
+                                Cloud CDN</span>
+                        </div>
+                    </div>
+                    <!-- Service Mesh -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Service Mesh</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Istio</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Anthos
+                                Service Mesh</span>
+                        </div>
+                    </div>
+                    <!-- Databases -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Databases</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">MySQL</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">PostgreSQL</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">MariaDB</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">DynamoDB</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">MongoDB</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Redis</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">ScyllaDB</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Cloud
+                                SQL</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Spanner</span>
+                        </div>
+                    </div>
+                    <!-- Scripting -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Scripting</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Python</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Bash</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Shell</span>
+                        </div>
+                    </div>
+                    <!-- Operating Systems -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Operating Systems</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Linux</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">RHEL</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Ubuntu</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">CentOS</span>
+                        </div>
+                    </div>
+                    <!-- Tools -->
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                        <div class="text-lg font-bold text-slate-900 mb-4 tracking-tight">Tools</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Jira</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Confluence</span>
+                            <span
+                                class="inline-block px-4 py-2 rounded-full bg-blue-50/80 border border-blue-200 text-blue-700 text-xs font-bold tracking-widest shadow-sm hover:bg-blue-100 transition-colors">Microsoft
+                                Teams</span>
                         </div>
                     </div>
                 </div>
@@ -479,20 +852,25 @@
 
             <!-- Certifications -->
             <section id="certifications" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Certifications</h2>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">
+                    Certifications</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
                         <iconify-icon icon="logos:google-cloud" class="text-6xl"></iconify-icon>
                         <div class="text-center sm:text-left">
                             <h3 class="text-lg font-bold text-slate-900 mb-1">Google Cloud Associate Cloud Engineer</h3>
-                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected Completion: May 2026</p>
+                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected
+                                Completion: May 2026</p>
                         </div>
                     </div>
-                    <div class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
+                    <div
+                        class="glass-panel p-8 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll flex flex-col sm:flex-row items-center gap-6">
                         <iconify-icon icon="logos:microsoft-azure" class="text-6xl"></iconify-icon>
                         <div class="text-center sm:text-left">
                             <h3 class="text-lg font-bold text-slate-900 mb-1">Microsoft Azure Fundamentals (AZ-900)</h3>
-                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected Completion: May 2026</p>
+                            <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Expected
+                                Completion: May 2026</p>
                         </div>
                     </div>
                 </div>
@@ -500,59 +878,76 @@
 
             <!-- Education -->
             <section id="education" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Education</h2>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">
+                    Education</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div
+                        class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                         <h3 class="text-xl font-black text-slate-900 mb-2">M.Sc in Data Science</h3>
-                        <h4 class="text-blue-600 font-semibold mb-4">University of Roehampton, London, United Kingdom</h4>
-                        <div class="inline-block px-4 py-2 rounded-lg bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold tracking-widest uppercase">
+                        <h4 class="text-blue-600 font-semibold mb-4">University of Roehampton, London, United Kingdom
+                        </h4>
+                        <div
+                            class="inline-block px-4 py-2 rounded-lg bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold tracking-widest uppercase">
                             Jan 2025 - Present
                         </div>
                     </div>
-                    <div class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
+                    <div
+                        class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll">
                         <h3 class="text-xl font-black text-slate-900 mb-2">B.Tech in Computer Science Engineering</h3>
                         <h4 class="text-blue-600 font-semibold mb-4">Dayananda Sagar University, Bengaluru, India</h4>
-                        <div class="inline-block px-4 py-2 rounded-lg bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold tracking-widest uppercase">
+                        <div
+                            class="inline-block px-4 py-2 rounded-lg bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold tracking-widest uppercase">
                             Aug 2018 - Apr 2022
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Social / Network Nodes -->
             <section id="social" class="min-h-screen flex items-center justify-center pt-24 px-6 pb-20">
                 <div class="max-w-4xl w-full text-center reveal-on-scroll">
-                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6">NETWORK<br>NODES</h1>
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6">NETWORK<br />NODES</h1>
                     <p class="text-slate-500 uppercase text-xs tracking-[0.3em] mb-16">Global Communication Channels</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <a href="https://github.com/manoj-panduraj" target="_blank" class="glass-panel p-12 rounded-2xl parallax-card group hover:border-slate-800 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
-                            <div class="w-24 h-24 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors duration-500">
+                        <a href="https://github.com/manoj-panduraj" target="_blank"
+                            class="glass-panel p-12 rounded-2xl parallax-card group hover:border-slate-800 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
+                            <div
+                                class="w-24 h-24 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors duration-500">
                                 <iconify-icon icon="mdi:github" class="text-5xl"></iconify-icon>
                             </div>
                             <div>
                                 <h3 class="text-2xl font-black text-slate-900 mb-2">GitHub</h3>
-                                <p class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-slate-800 transition-colors">@manoj-panduraj</p>
+                                <p
+                                    class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-slate-800 transition-colors">
+                                    @manoj-panduraj</p>
                             </div>
                         </a>
 
-                        <a href="https://linkedin.com/in/manoj-panduraj-637876193" target="_blank" class="glass-panel p-12 rounded-2xl parallax-card group hover:border-blue-600 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
-                            <div class="w-24 h-24 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
+                        <a href="https://linkedin.com/in/manoj-panduraj-637876193" target="_blank"
+                            class="glass-panel p-12 rounded-2xl parallax-card group hover:border-blue-600 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
+                            <div
+                                class="w-24 h-24 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">
                                 <iconify-icon icon="mdi:linkedin" class="text-5xl"></iconify-icon>
                             </div>
                             <div>
                                 <h3 class="text-2xl font-black text-slate-900 mb-2">LinkedIn</h3>
-                                <p class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-blue-600 transition-colors">Professional Network</p>
+                                <p
+                                    class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-blue-600 transition-colors">
+                                    Professional Network</p>
                             </div>
                         </a>
 
-                        <a href="mailto:manojsbala.03@gmail.com" class="glass-panel p-12 rounded-2xl parallax-card group hover:border-red-500 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
-                            <div class="w-24 h-24 rounded-full bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors duration-500">
+                        <a href="mailto:manojsbala.03@gmail.com"
+                            class="glass-panel p-12 rounded-2xl parallax-card group hover:border-red-500 transition-all duration-300 flex flex-col items-center gap-6 shadow-sm hover:shadow-xl">
+                            <div
+                                class="w-24 h-24 rounded-full bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors duration-500">
                                 <iconify-icon icon="mdi:email" class="text-5xl"></iconify-icon>
                             </div>
                             <div>
                                 <h3 class="text-2xl font-black text-slate-900 mb-2">Email</h3>
-                                <p class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-red-500 transition-colors">Direct Contact</p>
+                                <p
+                                    class="text-xs text-slate-500 uppercase tracking-widest font-bold group-hover:text-red-500 transition-colors">
+                                    Direct Contact</p>
                             </div>
                         </a>
                     </div>
@@ -560,18 +955,18 @@
                     <div class="mt-24 inline-block">
                         <div class="glass-panel px-8 py-4 rounded-full flex items-center gap-4 border border-green-200">
                             <span class="flex h-3 w-3 relative">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </span>
-                            <span class="text-xs font-bold uppercase tracking-widest text-slate-600">Open to new opportunities</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-600">Open to new
+                                opportunities</span>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Terminal Footer -->
             <footer id="terminal" class="py-24 px-6">
-                <div class="max-w-4xl mx-auto reveal-on-scroll">
+                <div class="max-w-4xl mx-auto reveal-on-scroll" style="transition-delay: 200ms;">
                     <div class="glass-panel rounded-lg overflow-hidden border">
                         <div class="bg-blue-50 px-4 py-2 flex items-center justify-between border-b border-blue-100">
                             <div class="flex gap-2">
@@ -581,14 +976,21 @@
                             </div>
                             <span class="text-[10px] font-mono text-slate-500">bash — manoj@cloudshell:~</span>
                         </div>
-                        <div class="p-8 font-mono text-xs md:text-sm space-y-4 text-slate-300 bg-slate-900 overflow-x-auto">
+                        <div
+                            class="p-8 font-mono text-xs md:text-sm space-y-4 text-slate-300 bg-slate-900 overflow-x-auto">
                             <p class="text-cyan-400"># System initialized. Welcome, Manoj. :-)</p>
+
                             <p><span class="text-green-400">manoj@cloudshell:~$</span> cat contact_info.md</p>
+
                             <div class="space-y-1 ml-4 border-l border-slate-700 pl-4">
-                                <p>Email: <a href="mailto:manojsbala.03@gmail.com" class="text-blue-400 hover:underline">manojsbala.03@gmail.com</a></p>
-                                <p>LinkedIn: <a href="https://linkedin.com/in/manoj-panduraj-637876193" class="text-blue-400 hover:underline">linkedin.com/in/manoj-panduraj</a></p>
-                                <p>GitHub: <a href="https://github.com/manoj-panduraj" class="text-blue-400 hover:underline">github.com/manoj-panduraj</a></p>
+                                <p>Email: <a href="mailto:manojsbala.03@gmail.com"
+                                        class="text-blue-400 hover:underline">manojsbala.03@gmail.com</a></p>
+                                <p>LinkedIn: <a href="https://linkedin.com/in/manoj-panduraj-637876193"
+                                        class="text-blue-400 hover:underline">linkedin.com/in/manoj-panduraj</a></p>
+                                <p>GitHub: <a href="https://github.com/manoj-panduraj"
+                                        class="text-blue-400 hover:underline">github.com/manoj-panduraj</a></p>
                             </div>
+
                             <div class="flex gap-2 items-center pt-4">
                                 <span class="text-green-400">manoj@cloudshell:~$</span>
                                 <span class="w-2 h-4 bg-slate-400 animate-pulse"></span>
@@ -597,15 +999,19 @@
                     </div>
 
                     <div class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
-                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">© 2026 Manoj Panduraj. DevOps Engineer Portfolio.</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest">© 2026 Manoj Panduraj. DevOps
+                            Engineer Portfolio.</p>
                         <div class="flex gap-8">
-                            <a href="https://github.com/manoj-panduraj" class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <a href="https://github.com/manoj-panduraj"
+                                class="text-slate-500 hover:text-blue-600 transition-colors">
                                 <iconify-icon icon="mdi:github" class="text-2xl"></iconify-icon>
                             </a>
-                            <a href="https://linkedin.com/in/manoj-panduraj-637876193" class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <a href="https://linkedin.com/in/manoj-panduraj-637876193"
+                                class="text-slate-500 hover:text-blue-600 transition-colors">
                                 <iconify-icon icon="mdi:linkedin" class="text-2xl"></iconify-icon>
                             </a>
-                            <a href="mailto:manojsbala.03@gmail.com" class="text-slate-500 hover:text-blue-600 transition-colors">
+                            <a href="mailto:manojsbala.03@gmail.com"
+                                class="text-slate-500 hover:text-blue-600 transition-colors">
                                 <iconify-icon icon="mdi:email" class="text-2xl"></iconify-icon>
                             </a>
                         </div>
@@ -614,105 +1020,96 @@
             </footer>
         </div>
     </div>
-
     <script>
-        // Reveal Logic (Moved to top for reliability)
-        try {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-revealed');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
-                observer.observe(el);
-            });
-        } catch (e) {
-            console.error("Reveal observer failed:", e);
-            // Fallback: Show all elements if observer fails
-            document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
-        }
-
         // Three.js 3D Background Implementation
-        try {
-            if (typeof THREE !== 'undefined') {
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                const canvasContainer = document.getElementById('three-canvas');
-                if (canvasContainer) {
-                    canvasContainer.appendChild(renderer.domElement);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('three-canvas').appendChild(renderer.domElement);
 
-                    // Geometry: Grid and Floating Particles
-                    const geometry = new THREE.IcosahedronGeometry(2, 0);
-                    const material = new THREE.MeshBasicMaterial({
-                        color: 0x2563eb,
-                        wireframe: true,
-                        transparent: true,
-                        opacity: 0.08
-                    });
-                    const sphere = new THREE.Mesh(geometry, material);
-                    scene.add(sphere);
+        // Geometry: Grid and Floating Particles
+        const geometry = new THREE.IcosahedronGeometry(2, 0);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x2563eb,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.08
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
 
-                    // Add starfield particles
-                    const starGeometry = new THREE.BufferGeometry();
-                    const starMaterial = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.015, transparent: true, opacity: 0.3 });
-                    const starVertices = [];
-                    for (let i = 0; i < 10000; i++) {
-                        const x = (Math.random() - 0.5) * 20;
-                        const y = (Math.random() - 0.5) * 20;
-                        const z = (Math.random() - 0.5) * 20;
-                        starVertices.push(x, y, z);
-                    }
-                    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-                    const stars = new THREE.Points(starGeometry, starMaterial);
-                    scene.add(stars);
-
-                    camera.position.z = 5;
-
-                    // Mouse Interaction for parallax
-                    let mouseX = 0, mouseY = 0;
-                    window.addEventListener('mousemove', (e) => {
-                        mouseX = (e.clientX - window.innerWidth / 2) / 100;
-                        mouseY = (e.clientY - window.innerHeight / 2) / 100;
-                    });
-
-                    function animate() {
-                        requestAnimationFrame(animate);
-                        sphere.rotation.x += 0.002;
-                        sphere.rotation.y += 0.002;
-                        camera.position.x += (mouseX - camera.position.x) * 0.05;
-                        camera.position.y += (-mouseY - camera.position.y) * 0.05;
-                        camera.lookAt(scene.position);
-                        stars.rotation.y += 0.0005;
-                        renderer.render(scene, camera);
-                    }
-                    animate();
-
-                    window.addEventListener('resize', () => {
-                        camera.aspect = window.innerWidth / window.innerHeight;
-                        camera.updateProjectionMatrix();
-                        renderer.setSize(window.innerWidth, window.innerHeight);
-                    });
-                }
-            }
-        } catch (e) {
-            console.error("Three.js failed:", e);
+        // Add starfield particles
+        const starGeometry = new THREE.BufferGeometry();
+        const starMaterial = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.015, transparent: true, opacity: 0.3 });
+        const starVertices = [];
+        for (let i = 0; i < 10000; i++) {
+            const x = (Math.random() - 0.5) * 20;
+            const y = (Math.random() - 0.5) * 20;
+            const z = (Math.random() - 0.5) * 20;
+            starVertices.push(x, y, z);
         }
+        starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+
+        camera.position.z = 5;
+
+        // Mouse Interaction for parallax
+        let mouseX = 0, mouseY = 0;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) / 100;
+            mouseY = (e.clientY - window.innerHeight / 2) / 100;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            sphere.rotation.x += 0.002;
+            sphere.rotation.y += 0.002;
+
+            // Smooth camera motion based on mouse
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            stars.rotation.y += 0.0005;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
 
         // Card Parallax Logic
-        document.querySelectorAll('.parallax-card').forEach(card => {
+        const cards = document.querySelectorAll('.parallax-card');
+        cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -728,21 +1125,25 @@
                 card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
             });
         });
-
         // Scroll Progress CLI Logic
         const scrollProgressCli = document.getElementById('scroll-progress-cli');
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = Math.round((winScroll / height) * 100);
+            
+            // Generate progress bar [=====>     ]
             const barsCount = 10;
             const filledCount = Math.floor(scrolled / (100 / barsCount));
             const emptyCount = barsCount - filledCount;
             const bar = '='.repeat(filledCount) + (filledCount < barsCount ? '>' : '') + ' '.repeat(Math.max(0, emptyCount - 1));
-            if (scrollProgressCli) scrollProgressCli.textContent = `PORTFOLIO_DEPLOY: [${bar}] ${scrolled}%`;
+            
+            if (scrollProgressCli) {
+                scrollProgressCli.textContent = `PORTFOLIO_DEPLOY: [${bar}] ${scrolled}%`;
+            }
         });
 
-        // Uptime Counter Logic
+        // Uptime Counter Logic (Simulated)
         const uptimeVal = document.getElementById('uptime-val');
         if (uptimeVal) {
             setInterval(() => {
@@ -752,68 +1153,72 @@
             }, 3000);
         }
 
-        // Feedback Bot Logic
-        (function() {
-            const feedbackBot = document.createElement('div');
-            feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 hidden md:flex';
-            feedbackBot.innerHTML = `
-                <div class="glass-panel p-4 rounded-2xl border shadow-2xl flex flex-col gap-3 max-w-[200px] relative animate-float">
-                    <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45"></div>
-                    <p class="text-[11px] font-black text-slate-800 leading-tight">Hi! I'm Lexa. Enjoying the site?</p>
-                    <div class="flex gap-2">
-                        <button id="like-btn" class="flex-1 p-2 rounded-lg bg-slate-50 hover:bg-green-50 text-slate-400 hover:text-green-600 transition-all border border-slate-100 flex flex-col items-center gap-1">
-                            <iconify-icon icon="lucide:thumbs-up" class="text-lg"></iconify-icon>
-                            <span id="like-count" class="text-[10px] font-black">1</span>
-                        </button>
-                        <button id="dislike-btn" class="p-2 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 transition-all border border-slate-100 flex items-center justify-center">
-                            <iconify-icon icon="lucide:thumbs-down" class="text-lg"></iconify-icon>
-                        </button>
-                    </div>
-                    <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold"></p>
+        // Feedback Bot Widget
+        const feedbackBot = document.createElement('div');
+        feedbackBot.className = 'fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2 hidden md:flex';
+        feedbackBot.innerHTML = `
+            <div class="glass-panel p-4 rounded-2xl border shadow-2xl flex flex-col gap-3 max-w-[200px] relative animate-float">
+                <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45"></div>
+                <p class="text-[11px] font-black text-slate-800 leading-tight">Hi! I'm Lexa. Enjoying the site?</p>
+                <div class="flex gap-2">
+                    <button id="like-btn" class="flex-1 p-2 rounded-lg bg-slate-50 hover:bg-green-50 text-slate-400 hover:text-green-600 transition-all border border-slate-100 flex flex-col items-center gap-1">
+                        <iconify-icon icon="lucide:thumbs-up" class="text-lg"></iconify-icon>
+                        <span id="like-count" class="text-[10px] font-black">1</span>
+                    </button>
+                    <button id="dislike-btn" class="p-2 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-400 hover:text-red-600 transition-all border border-slate-100 flex items-center justify-center">
+                        <iconify-icon icon="lucide:thumbs-down" class="text-lg"></iconify-icon>
+                    </button>
                 </div>
-                <div class="w-12 h-12 rounded-full bg-slate-900 shadow-lg flex items-center justify-center text-white border-4 border-white animate-bounce-subtle">
-                    <iconify-icon icon="fa6-brands:linux" class="text-2xl"></iconify-icon>
-                </div>
-            `;
-            document.body.appendChild(feedbackBot);
+                <p id="bot-status" class="text-[9px] font-mono text-blue-600 hidden uppercase tracking-tighter font-bold"></p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-slate-900 shadow-lg flex items-center justify-center text-white border-4 border-white animate-bounce-subtle">
+                <iconify-icon icon="fa6-brands:linux" class="text-2xl"></iconify-icon>
+            </div>
+        `;
 
-            let hasVoted = localStorage.getItem('manoj_portfolio_voted');
-            const likeBtn = document.getElementById('like-btn');
-            const dislikeBtn = document.getElementById('dislike-btn');
-            const likeCountLabel = document.getElementById('like-count');
-            const botStatus = document.getElementById('bot-status');
-            let baseLikes = 1;
+        document.body.appendChild(feedbackBot);
 
-            const updateUI = (vote) => {
-                if (vote === 'like') {
-                    likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
-                    dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
-                    likeCountLabel.textContent = baseLikes + 1;
-                    botStatus.textContent = "Thanks! Appreciate it";
-                } else if (vote === 'dislike') {
-                    dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
-                    likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
-                    likeCountLabel.textContent = baseLikes;
-                    botStatus.textContent = "Ohh";
-                }
-                if (vote) botStatus.classList.remove('hidden');
-            };
+        // Tracking Logic
+        let hasVoted = localStorage.getItem('manoj_portfolio_voted');
+        const likeBtn = document.getElementById('like-btn');
+        const dislikeBtn = document.getElementById('dislike-btn');
+        const likeCountLabel = document.getElementById('like-count');
+        const botStatus = document.getElementById('bot-status');
+        
+        let baseLikes = 1;
+        if (hasVoted === 'like') {
+            likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
+            likeCountLabel.textContent = baseLikes + 1;
+            botStatus.textContent = "Thanks! Appreciate it";
+            botStatus.classList.remove('hidden');
+        } else if (hasVoted === 'dislike') {
+            dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
+            botStatus.textContent = "Ohh";
+            botStatus.classList.remove('hidden');
+        }
 
-            updateUI(hasVoted);
+        likeBtn.addEventListener('click', () => {
+            if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
+            localStorage.setItem('manoj_portfolio_voted', 'like');
+            likeBtn.classList.add('text-green-600', 'bg-green-50', 'border-green-200');
+            dislikeBtn.classList.remove('text-red-600', 'bg-red-50', 'border-red-200');
+            likeCountLabel.textContent = baseLikes + 1;
+            botStatus.textContent = "Thanks! Appreciate it";
+            botStatus.classList.remove('hidden');
+        });
 
-            likeBtn.addEventListener('click', () => {
-                if (localStorage.getItem('manoj_portfolio_voted') === 'like') return;
-                localStorage.setItem('manoj_portfolio_voted', 'like');
-                updateUI('like');
-            });
-
-            dislikeBtn.addEventListener('click', () => {
-                if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
-                localStorage.setItem('manoj_portfolio_voted', 'dislike');
-                updateUI('dislike');
-            });
-        })();
+        dislikeBtn.addEventListener('click', () => {
+            if (localStorage.getItem('manoj_portfolio_voted') === 'dislike') return;
+            localStorage.setItem('manoj_portfolio_voted', 'dislike');
+            dislikeBtn.classList.add('text-red-600', 'bg-red-50', 'border-red-200');
+            likeBtn.classList.remove('text-green-600', 'bg-green-50', 'border-green-200');
+            likeCountLabel.textContent = baseLikes;
+            botStatus.textContent = "Ohh";
+            botStatus.classList.remove('hidden');
+        });
     </script>
+
+
 </body>
 
 </html>
