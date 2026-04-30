@@ -117,6 +117,15 @@
             transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
         }
 
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .reveal-on-scroll.is-revealed {
             opacity: 1;
             transform: translateY(0);
@@ -184,7 +193,7 @@
                     </div>
                 </div>
                 <div
-                    class="hidden lg:flex items-center gap-6 xl:gap-8 font-semibold text-slate-600 text-sm tracking-wide">
+                    class="flex items-center gap-4 lg:gap-6 xl:gap-8 font-semibold text-slate-600 text-[12px] sm:text-sm tracking-wide overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0 scrollbar-hide whitespace-nowrap mt-2 lg:mt-0 px-1">
                     <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
                     <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
                     <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
@@ -1089,6 +1098,7 @@
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('three-canvas').appendChild(renderer.domElement);
 
