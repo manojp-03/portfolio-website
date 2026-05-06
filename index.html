@@ -976,7 +976,286 @@
 
 
             <!-- Competencies -->
-            <section id="competencies" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+            
+<!-- ================= INFRAWATCH SHOWCASE SECTION ================= -->
+<section id="infrawatch" class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+
+    <div class="reveal-on-scroll mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-xs font-bold uppercase tracking-widest mb-4">
+            <iconify-icon icon="lucide:activity"></iconify-icon>
+            Flagship SRE Project
+        </div>
+
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-4">
+            InfraWatch — SRE Monitoring Platform
+        </h2>
+
+        <p class="text-slate-600 text-lg max-w-3xl leading-relaxed">
+            A production-style observability platform built using Prometheus, Grafana,
+            Loki, Promtail, Alertmanager, Slack, Docker, and GitHub Actions for
+            real-time infrastructure monitoring, centralized logging,
+            alerting, and incident response automation.
+        </p>
+    </div>
+
+    <!-- Metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal-on-scroll">
+
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <div class="text-4xl font-black text-blue-600 mb-2">17+</div>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Alert Rules
+            </p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <div class="text-4xl font-black text-blue-600 mb-2">4</div>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Dashboards
+            </p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <div class="text-4xl font-black text-blue-600 mb-2">Loki</div>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Logging Stack
+            </p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl text-center">
+            <div class="text-4xl font-black text-blue-600 mb-2">Slack</div>
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Alerting
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Architecture -->
+    <div class="glass-panel p-8 rounded-3xl mb-16 reveal-on-scroll">
+        <h3 class="text-2xl font-black text-slate-900 mb-8">
+            Infrastructure Flow
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+
+            <div class="p-5 rounded-2xl bg-white border border-blue-100">
+                <iconify-icon icon="lucide:laptop" class="text-3xl text-blue-600"></iconify-icon>
+                <p class="font-bold mt-2 text-slate-900">MacBook</p>
+                <p class="text-xs text-slate-500">Node Exporter</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-blue-100">
+                <iconify-icon icon="lucide:server" class="text-3xl text-blue-600"></iconify-icon>
+                <p class="font-bold mt-2 text-slate-900">GCP VM</p>
+                <p class="text-xs text-slate-500">Docker Stack</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-orange-100">
+                <iconify-icon icon="simple-icons:prometheus" class="text-3xl text-orange-600"></iconify-icon>
+                <p class="font-bold mt-2 text-slate-900">Prometheus</p>
+                <p class="text-xs text-slate-500">Metrics</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-orange-100">
+                <iconify-icon icon="logos:grafana" class="text-3xl"></iconify-icon>
+                <p class="font-bold mt-2 text-slate-900">Grafana</p>
+                <p class="text-xs text-slate-500">Dashboards</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-purple-100">
+                <iconify-icon icon="logos:slack-icon" class="text-3xl"></iconify-icon>
+                <p class="font-bold mt-2 text-slate-900">Slack</p>
+                <p class="text-xs text-slate-500">Alerts</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Dashboard Gallery -->
+    <div class="mb-16 reveal-on-scroll">
+
+        <h3 class="text-2xl font-black text-slate-900 mb-8">
+            Grafana Dashboard Gallery
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/gcp-vm-dashboard-top.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="GCP Dashboard">
+
+                <h4 class="font-black text-slate-900">
+                    GCP VM Dashboard
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    CPU, memory, filesystem, load average,
+                    network traffic, SLA, and infrastructure health.
+                </p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/macbook-dashboard-top.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="MacBook Dashboard">
+
+                <h4 class="font-black text-slate-900">
+                    MacBook Monitoring
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    Local machine observability using secure SSH reverse tunneling.
+                </p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/website-dashboard-top.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="Website Dashboard">
+
+                <h4 class="font-black text-slate-900">
+                    Website Uptime Dashboard
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    Blackbox monitoring for uptime, latency,
+                    HTTP status, and SSL expiry.
+                </p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/prometheus-dashboard-top.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="Prometheus Dashboard">
+
+                <h4 class="font-black text-slate-900">
+                    Prometheus Monitoring
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    Target health, scrape duration,
+                    failures, and monitoring pipeline metrics.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Slack Alerts -->
+    <div class="mb-16 reveal-on-scroll">
+
+        <h3 class="text-2xl font-black text-slate-900 mb-8">
+            Slack Incident Alerts
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/alerts-top.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="Slack Alerts">
+
+                <h4 class="font-black text-slate-900">
+                    Firing Alerts
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    Real-time Slack alerts from Alertmanager.
+                </p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-3xl">
+                <img src="assets/infrawatch/alerts-bottom.png"
+                     class="rounded-2xl border border-blue-100 mb-4"
+                     alt="Slack Resolved Alerts">
+
+                <h4 class="font-black text-slate-900">
+                    Resolved Alerts
+                </h4>
+
+                <p class="text-sm text-slate-500">
+                    Full alert lifecycle with automatic recovery notifications.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Incident Workflow -->
+    <div class="glass-panel p-8 rounded-3xl mb-16 reveal-on-scroll">
+
+        <h3 class="text-2xl font-black text-slate-900 mb-8">
+            Incident Response Workflow
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+
+            <div class="p-5 rounded-2xl bg-white border border-red-100">
+                <p class="font-black text-red-600 mb-2">1. Alert</p>
+                <p class="text-sm text-slate-500">
+                    Slack receives incident notification.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-blue-100">
+                <p class="font-black text-blue-600 mb-2">2. Metrics</p>
+                <p class="text-sm text-slate-500">
+                    Analyze Grafana dashboards.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-purple-100">
+                <p class="font-black text-purple-600 mb-2">3. Logs</p>
+                <p class="text-sm text-slate-500">
+                    Search Loki logs for RCA.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-orange-100">
+                <p class="font-black text-orange-600 mb-2">4. Fix</p>
+                <p class="text-sm text-slate-500">
+                    Resolve infrastructure/service issue.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-green-100">
+                <p class="font-black text-green-600 mb-2">5. Recovery</p>
+                <p class="text-sm text-slate-500">
+                    Alertmanager sends resolved notification.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-wrap gap-4 reveal-on-scroll">
+
+        <a href="https://github.com/manojp-03/monitoring-stack"
+           target="_blank"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
+
+            <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon>
+            GitHub Repository
+        </a>
+
+        <a href="https://manojpanduraj.com/grafana/"
+           target="_blank"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-50 transition-all">
+
+            <iconify-icon icon="logos:grafana" class="text-lg"></iconify-icon>
+            Live Grafana
+        </a>
+
+    </div>
+
+</section>
+<!-- ================= END INFRAWATCH SHOWCASE ================= -->
+
+
+<section id="competencies" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
                 <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-12 reveal-on-scroll">Core
                     Competencies</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
