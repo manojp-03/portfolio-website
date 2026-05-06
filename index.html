@@ -487,196 +487,166 @@
                 </div>
             </section>
 
-            <section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-                <div class="reveal-on-scroll mb-12">
-                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">Projects</h2>
+            
+<section id="projects" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+    <div class="reveal-on-scroll mb-12">
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 mb-4">
+            Projects
+        </h2>
+    </div>
+
+    <!-- Live Projects Section -->
+    <div class="reveal-on-scroll mb-10">
+        <h3 class="text-2xl font-bold text-blue-600 mb-8 flex items-center gap-3">
+            <iconify-icon icon="lucide:activity"></iconify-icon>
+            Live Production Systems
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- InfraWatch -->
+            <div
+                class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
+
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-cyan-400">
                 </div>
 
-                <!-- Live Projects Section -->
-                <div class="reveal-on-scroll mb-10">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-8 flex items-center gap-3">
-                        <iconify-icon icon="lucide:activity"></iconify-icon> Live Production Systems
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Live Project 1: Grafana/Prometheus -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3
-                                    class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
-                                    Grafana & Prometheus Monitoring Stack</h3>
-                                <span
-                                    class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
-                            </div>
-                            <p class="text-slate-600 text-sm mb-6">Deployed and managed a robust observability ecosystem
-                                for real-time tracking of infrastructure health and application performance metrics.</p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Prometheus exporters for
-                                    granular metric collection.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Advanced Grafana dashboards with
-                                    dynamic alerting and heatmaps.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>AlertManager integration for
-                                    automated Slack and PagerDuty notifications.</li>
-                            </ul>
-                            <div class="flex gap-4">
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Stack:
-                                    Prometheus, Grafana, AlertManager</span>
-                            </div>
-                        </div>
+                <div class="flex justify-between items-start mb-4 mt-2">
+                    <div>
+                        <h3
+                            class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                            InfraWatch — SRE Monitoring Platform
+                        </h3>
 
-                        <!-- Live Project 2: Portfolio -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <div class="flex justify-between items-start mb-4 mt-2">
-                                <h3
-                                    class="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
-                                    3D Immersive DevOps Portfolio</h3>
-                                <span
-                                    class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">Live</span>
-                            </div>
-                            <p class="text-slate-600 text-sm mb-6">My personal portfolio, built as a high-performance Single-Page Application (SPA) to showcase technical expertise through immersive 3D visualizations.</p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Custom Three.js 3D background with
-                                    dynamic mouse-tracking particles.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Glassmorphic UI design built with
-                                    Tailwind CSS and GSAP animations.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Interactive Cloud Shell terminal UI
-                                    for DevOps-themed engagement.</li>
-                            </ul>
-                            <a href="#"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
-                                <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon> View Site
-                            </a>
-                        </div>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">
+                            Production Observability • GitOps • Incident Response
+                        </p>
+                    </div>
+
+                    <span
+                        class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider">
+                        Live
+                    </span>
+                </div>
+
+                <p class="text-slate-600 text-sm mb-6">
+                    Built a production-style observability platform using Prometheus, Grafana,
+                    Loki, Promtail, Alertmanager, Slack, Docker, and GitHub Actions.
+                </p>
+
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="bg-white/70 border border-blue-100 rounded-2xl p-4">
+                        <div class="text-2xl font-black text-blue-600">17+</div>
+                        <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest">
+                            Alert Rules
+                        </p>
+                    </div>
+
+                    <div class="bg-white/70 border border-blue-100 rounded-2xl p-4">
+                        <div class="text-2xl font-black text-blue-600">4</div>
+                        <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest">
+                            Dashboards
+                        </p>
+                    </div>
+
+                    <div class="bg-white/70 border border-blue-100 rounded-2xl p-4">
+                        <div class="text-2xl font-black text-blue-600">100%</div>
+                        <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest">
+                            GitOps Deploy
+                        </p>
+                    </div>
+
+                    <div class="bg-white/70 border border-blue-100 rounded-2xl p-4">
+                        <div class="text-2xl font-black text-blue-600">Slack</div>
+                        <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest">
+                            Alerting
+                        </p>
                     </div>
                 </div>
 
-                <!-- Engineering Repository Section -->
-                <div class="reveal-on-scroll mt-16">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-8 flex items-center gap-3">
-                        <iconify-icon icon="lucide:git-branch"></iconify-icon> Engineering Repository & Lab Projects
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Project 1 -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <h3
-                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
-                                Multi-Environment Kubernetes Deployment Platform</h3>
-                            <p class="text-slate-600 text-sm mb-6">Designed a reusable deployment framework for
-                                development,
-                                staging, and production Kubernetes environments using Helm, Terraform, and GitHub
-                                Actions.
-                            </p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Standardized releases across
-                                    environments with repeatable infrastructure provisioning.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Integrated CI/CD automation with
-                                    secure
-                                    secrets handling and rollout validation.</li>
-                            </ul>
-                            <a href="https://github.com/manojp-03" target="_blank"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
-                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
-                            </a>
-                        </div>
-                        <!-- Project 2 -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <h3
-                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
-                                Cloud Migration Readiness &amp; Cutover Automation</h3>
-                            <p class="text-slate-600 text-sm mb-6">Built a migration support workflow for AWS to GCP
-                                transitions covering provisioning, validation checklists, and post-cutover monitoring
-                                readiness.</p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Created Terraform templates for
-                                    faster
-                                    and safer cloud resource setup.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Defined rollback-aware deployment
-                                    steps
-                                    and smoke-test verification.</li>
-                            </ul>
-                            <a href="https://github.com/manojp-03" target="_blank"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
-                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
-                            </a>
-                        </div>
-                        <!-- Project 3 -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <h3
-                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
-                                Observability &amp; Incident Response Dashboard Suite</h3>
-                            <p class="text-slate-600 text-sm mb-6">Implemented operational dashboards and alert tuning
-                                workflows with Splunk, New Relic, and Cloud monitoring tools for production systems.</p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Centralized logs, metrics, and alert
-                                    signals for faster diagnosis.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Reduced noise through alert tuning
-                                    and
-                                    prioritization logic.</li>
-                            </ul>
-                            <a href="https://github.com/manojp-03" target="_blank"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
-                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
-                            </a>
-                        </div>
-                        <!-- Project 4 -->
-                        <div
-                            class="glass-panel p-10 rounded-3xl parallax-card hover:border-blue-400 transition-colors reveal-on-scroll relative overflow-hidden group">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-400">
-                            </div>
-                            <h3
-                                class="text-xl font-black text-slate-900 mb-4 mt-2 group-hover:text-blue-600 transition-colors">
-                                Secure Infrastructure as Code Modules</h3>
-                            <p class="text-slate-600 text-sm mb-6">Developed modular Terraform components for cloud
-                                networking, IAM, and workload deployment with security-by-design principles.</p>
-                            <ul class="space-y-3 text-slate-600 text-sm mb-8">
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Enabled repeatable provisioning
-                                    across
-                                    AWS and GCP environments.</li>
-                                <li class="flex items-start gap-3"><iconify-icon icon="lucide:chevron-right"
-                                        class="text-blue-400 mt-0.5"></iconify-icon>Implemented automated policy checks
-                                    (Sentinel/OPA) for IaC compliance.</li>
-                            </ul>
-                            <a href="https://github.com/manojp-03" target="_blank"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
-                                <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon> GitHub
-                            </a>
-                        </div>
-                    </div>
+                <ul class="space-y-3 text-slate-600 text-sm mb-8">
+                    <li class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:chevron-right"
+                            class="text-blue-400 mt-0.5"></iconify-icon>
+                        Monitored GCP VM, MacBook, website uptime, Prometheus targets,
+                        Docker services, and infrastructure health.
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:chevron-right"
+                            class="text-blue-400 mt-0.5"></iconify-icon>
+                        Implemented Slack alerting workflows with firing and resolved notifications.
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:chevron-right"
+                            class="text-blue-400 mt-0.5"></iconify-icon>
+                        Centralized logging using Loki and Promtail for incident investigation.
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:chevron-right"
+                            class="text-blue-400 mt-0.5"></iconify-icon>
+                        Securely monitored local MacBook metrics using SSH reverse tunneling.
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:chevron-right"
+                            class="text-blue-400 mt-0.5"></iconify-icon>
+                        Automated deployments using GitHub Actions and Docker Compose.
+                    </li>
+                </ul>
+
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-100">
+                        Prometheus
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-bold border border-orange-100">
+                        Grafana
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-[10px] font-bold border border-purple-100">
+                        Loki
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-green-50 text-green-700 text-[10px] font-bold border border-green-100">
+                        Alertmanager
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-slate-50 text-slate-700 text-[10px] font-bold border border-slate-100">
+                        Docker
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 text-[10px] font-bold border border-cyan-100">
+                        GitHub Actions
+                    </span>
                 </div>
-            </section>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://github.com/manojp-03/monitoring-stack"
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-bold tracking-widest uppercase hover:bg-blue-700 transition-all">
+
+                        <iconify-icon icon="mdi:github" class="text-lg"></iconify-icon>
+                        GitHub Repo
+                    </a>
+
+                    <a href="https://manojpanduraj.com/grafana/"
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-blue-200 text-blue-700 text-sm font-bold tracking-widest uppercase hover:bg-blue-50 transition-all">
+
+                        <iconify-icon icon="logos:grafana" class="text-lg"></iconify-icon>
+                        Live Grafana
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
             <!-- DevOps Philosophy -->
 
