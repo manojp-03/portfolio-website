@@ -579,27 +579,39 @@
         </span>
     </div>
 
-    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-        Flagship SRE project built with Prometheus, Grafana, Loki, Promtail,
-        Alertmanager, Slack, Docker, and GitHub Actions for monitoring, logging,
-        alerting, and incident response automation.
+    <div class="bg-blue-50/50 border border-blue-100 rounded-2xl p-6 mb-8">
+    <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4">
+        Platform Overview
+    </h4>
+
+    <p class="text-slate-600 text-sm leading-relaxed mb-5">
+        Production-style observability platform built with Prometheus, Grafana,
+        Loki, Promtail, Alertmanager, Slack, Docker, and GitHub Actions for
+        real-time monitoring, centralized logging, alerting, GitOps deployment,
+        and incident response automation across cloud and local systems.
     </p>
 
-    <div class="bg-blue-50/50 border border-blue-100 rounded-2xl p-5 mb-8">
-        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-3">
-            Platform Overview
-        </h4>
-        <ul class="space-y-3 text-slate-600 text-sm">
-            <li class="flex items-start gap-3">
-                <iconify-icon icon="lucide:activity" class="text-blue-500 mt-0.5"></iconify-icon>
-                Production-grade monitoring stack with metrics, logging, alerting, and incident response automation.
-            </li>
-            <li class="flex items-start gap-3">
-                <iconify-icon icon="lucide:layout-dashboard" class="text-blue-500 mt-0.5"></iconify-icon>
-                Dedicated case-study section below includes architecture, dashboards, alerts, and workflows.
-            </li>
-        </ul>
+    <div class="flex items-start gap-3 p-4 rounded-2xl bg-white border border-blue-100">
+        <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+            <iconify-icon icon="lucide:shield-check" class="text-blue-600 text-lg"></iconify-icon>
+        </div>
+
+        <div>
+            <p class="text-xs font-black uppercase tracking-widest text-slate-900 mb-2">
+                Demo Access
+            </p>
+
+            <div class="space-y-1 text-sm text-slate-600">
+                <p><span class="font-bold text-slate-900">Username:</span> demo_user</p>
+                <p><span class="font-bold text-slate-900">Password:</span> demo_user</p>
+            </div>
+
+            <p class="text-xs text-slate-500 mt-3">
+                Use these demo credentials to explore the live monitoring platform.
+            </p>
+        </div>
     </div>
+</div>
 
     <div class="flex flex-wrap gap-2 mb-8">
         <span class="px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-[10px] font-bold border border-orange-100">Prometheus</span>
