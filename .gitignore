@@ -11,4 +11,5 @@ node_modules/
 .vscode/
 
 # Environment files
-.env
+.env*.bak*
+*.bak*
